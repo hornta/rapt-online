@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Level } from "./Level.js";
 import { Start } from "./Start.js";
 import { Editor } from "./Editor.js";
+import { ClerkProvider } from "@clerk/clerk-react";
 
 const router = createBrowserRouter([
 	{
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<ClerkProvider
+			publishableKey={import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY}
+		>
+			<RouterProvider router={router} />
+		</ClerkProvider>
 	</React.StrictMode>
 );

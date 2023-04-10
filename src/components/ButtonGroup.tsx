@@ -1,6 +1,6 @@
 import { ReactNode, createContext } from "react";
 
-export const ButtonGroupContext = createContext(null);
+export const ButtonGroupContext = createContext<boolean>(null as any);
 
 interface ButtonGroupProps {
 	children?: ReactNode;
@@ -8,8 +8,8 @@ interface ButtonGroupProps {
 
 export const ButtonGroup = ({ children }: ButtonGroupProps) => {
 	return (
-		<ButtonGroupContext.Provider value={null}>
-			{children}
+		<ButtonGroupContext.Provider value={true}>
+			<div>{children}</div>
 		</ButtonGroupContext.Provider>
 	);
 };

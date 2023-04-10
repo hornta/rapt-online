@@ -29,6 +29,7 @@ import { ButtonGroup } from "./components/ButtonGroup.js";
 import { initGame } from "./game.js";
 import { HelpPanel } from "./components/HelpPanel.js";
 import { levelDataSchema } from "./schemas.js";
+import { User } from "./components/User.js";
 
 function mousePoint(canvas: HTMLCanvasElement, event: MouseEvent | WheelEvent) {
 	return new Vector(
@@ -312,6 +313,7 @@ export const Editor = () => {
 							Export
 						</Button>
 					</ButtonGroup>
+					<User />
 				</div>
 			</div>
 			<div className="flex" ref={canvasContainerRef}>

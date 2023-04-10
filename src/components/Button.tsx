@@ -11,7 +11,7 @@ export const Button = ({ className, ...props }: ButtonProps) => {
 	const buttonGroup = useContext(ButtonGroupContext);
 
 	let buttonGroupClass: string | null = null;
-	if (buttonGroup === null) {
+	if (typeof buttonGroup === "boolean") {
 		buttonGroupClass =
 			"mr-[-1px] rounded-none first:rounded-l-lg last:rounded-r-lg";
 	}
