@@ -89,3 +89,14 @@ export const STAT_NUM_COGS = 3;
 export const SPAWN_POINT_PARTICLE_FREQ = 0.3;
 
 export const GAME_SCALE = 50;
+
+export const COLOR_NEUTRAL = 0;
+export const COLOR_RED = 1;
+export const COLOR_BLUE = 2;
+
+export const TEXT_BOX_X_MARGIN = 6;
+export const TEXT_BOX_Y_MARGIN = 6;
+
+export const MOUSE_LEFT = 1;
+export const MOUSE_MIDDLE = 4;
+export const MOUSE_RIGHT = 2;

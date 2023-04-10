@@ -1,4 +1,5 @@
 import { LevelData } from "../schemas.js";
+import { updateInput } from "./input.js";
 import { Level } from "./level.js";
 
 export const startGame = (
@@ -9,20 +10,24 @@ export const startGame = (
 ) => {
 	const level = new Level(canvas, width, height);
 	level.load(levelData);
+	let handle: number;
 	const tick = () => {
 		level.tick();
+		updateInput();
+
+		handle = requestAnimationFrame(tick);
 	};
 
 	tick();
-	const handle = setInterval(tick, 1000 / 60);
 
 	return {
 		destroy: () => {
-			clearInterval(handle);
+			cancelAnimationFrame(handle);
 			level.destroy();
 		},
 		resize(width: number, height: number) {
 			level.resize(width, height);
 		},
+		level,
 	};
 };

@@ -35,7 +35,7 @@ type BooleanKeys<T> = {
 type PlayerBooleans = { [k in BooleanKeys<Player>]: boolean };
 type GameStateBooleans = { [k in BooleanKeys<GameState>]: boolean };
 
-const updateAction = (key: string, value: boolean) => {
+export const updateAction = (key: string, value: boolean) => {
 	const action = keyToAction[key];
 	if (action !== undefined) {
 		if (action.startsWith("a-")) {
@@ -48,12 +48,4 @@ const updateAction = (key: string, value: boolean) => {
 			gameState[action as keyof GameStateBooleans] = value;
 		}
 	}
-};
-
-export const handleKeyDown = (key: string) => {
-	updateAction(key, true);
-};
-
-export const handleKeyUp = (key: string) => {
-	updateAction(key, false);
 };

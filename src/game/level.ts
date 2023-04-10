@@ -1,5 +1,7 @@
 import { LevelData } from "../schemas.js";
+import { GAME_LOST, GAME_WON } from "./constants.js";
 import { Game, gameState } from "./game.js";
+import { getKeyPressed } from "./input.js";
 import { Particle } from "./particle.js";
 
 export class Level {
@@ -39,6 +41,14 @@ export class Level {
 			}
 
 			this.game.draw(this.context);
+
+			if (getKeyPressed(" ")) {
+				if (gameState.gameStatus === GAME_LOST) {
+					this.restart();
+				} else if (gameState.gameStatus === GAME_WON) {
+					// go to next level
+				}
+			}
 		}
 	}
 
@@ -64,5 +74,23 @@ export class Level {
 	load(levelData: LevelData) {
 		this.json = levelData;
 		this.restart();
+	}
+
+	keyDown(e: KeyboardEvent) {
+		if (this.game !== null) {
+			this.game.keyDown(e);
+
+			if (e.code === "Space") {
+				if (gameState.gameStatus === GAME_LOST) {
+					this.restart();
+				}
+			}
+		}
+	}
+
+	keyUp(e: KeyboardEvent) {
+		if (this.game !== null) {
+			this.game.keyUp(e);
+		}
 	}
 }

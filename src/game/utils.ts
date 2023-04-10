@@ -1,3 +1,7 @@
+import { TEXT_BOX_X_MARGIN, TEXT_BOX_Y_MARGIN } from "./constants.js";
+import { Edge } from "./editor/edge.js";
+import { Vector } from "./vector.js";
+
 export type TupleOf<T, N extends number> = N extends N
 	? number extends N
 		? Readonly<T[]>
@@ -6,9 +10,6 @@ export type TupleOf<T, N extends number> = N extends N
 type _TupleOf<T, N extends number, R extends unknown[]> = R["length"] extends N
 	? R
 	: _TupleOf<T, N, [T, ...R]>;
-
-const TEXT_BOX_X_MARGIN = 6;
-const TEXT_BOX_Y_MARGIN = 6;
 
 export function drawTextBox(
 	c: CanvasRenderingContext2D,
@@ -83,3 +84,72 @@ export function adjustAngleToTarget(
 	currAngle -= Math.floor(currAngle / (2 * Math.PI)) * (2 * Math.PI);
 	return currAngle;
 }
+
+export function rgba(r: number, g: number, b: number, a: number) {
+	return "rgba(" + r + ", " + g + ", " + b + ", " + a.toFixed(5) + ")";
+}
+
+const HELP_SIGN_TEXT_WIDTH = 1.5;
+
+export function splitUpText(c: CanvasRenderingContext2D, phrase: string) {
+	const words = phrase.split(" ");
+	const phraseArray = [];
+	let lastPhrase = "";
+	c.font = "12px sans serif";
+	const maxWidth = HELP_SIGN_TEXT_WIDTH * 50;
+	let measure = 0;
+	for (let i = 0; i < words.length; ++i) {
+		const word = words[i];
+		measure = c.measureText(lastPhrase + word).width;
+		if (measure < maxWidth) {
+			lastPhrase += " " + word;
+		} else {
+			if (lastPhrase.length > 0) {
+				phraseArray.push(lastPhrase);
+			}
+			lastPhrase = word;
+		}
+		if (i === words.length - 1) {
+			phraseArray.push(lastPhrase);
+			break;
+		}
+	}
+	return phraseArray;
+}
+
+export function dashedLine(
+	c: CanvasRenderingContext2D,
+	start: Vector,
+	end: Vector
+) {
+	let dir = end.sub(start);
+	const n = dir.length() * 10;
+	dir = dir.div(n);
+	c.beginPath();
+	let i = 0;
+	for (; i + 1 < n; i += 2) {
+		c.moveTo(start.x, start.y);
+		start = start.add(dir);
+		c.lineTo(start.x, start.y);
+		start = start.add(dir);
+	}
+	if (i < n) {
+		c.moveTo(start.x, start.y);
+		start = start.add(dir.mul(n - i));
+		c.lineTo(start.x, start.y);
+	}
+	c.stroke();
+}
+
+export const getClosestEdge = (point: Vector, edges: Edge[]) => {
+	let edge = null;
+	let minDistance = Number.MAX_VALUE;
+	for (let i = 0; i < edges.length; i++) {
+		const distance = edges[i].squaredDistanceToPoint(point);
+		if (distance < minDistance) {
+			minDistance = distance;
+			edge = edges[i];
+		}
+	}
+	return edge;
+};

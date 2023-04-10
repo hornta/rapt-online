@@ -24,7 +24,7 @@ export const entitySchema = z.discriminatedUnion("class", [
 	z
 		.object({
 			class: z.literal("wall"),
-			color: z.number(),
+			color: z.union([z.literal(0), z.literal(1), z.literal(2)]),
 			end: z.tuple([z.number(), z.number()]),
 			start: z.tuple([z.number(), z.number()]),
 			oneway: z.boolean(),
@@ -72,9 +72,19 @@ export const levelDataSchema = z
 		start: z.tuple([z.number(), z.number()]),
 		height: z.number(),
 		width: z.number(),
-		cells: z.array(z.array(z.number())),
+		cells: z.array(
+			z.array(
+				z.union([
+					z.literal(0),
+					z.literal(1),
+					z.literal(2),
+					z.literal(3),
+					z.literal(4),
+					z.literal(5),
+				])
+			)
+		),
 		entities: z.array(entitySchema),
 	})
 	.strict();
-
 export type LevelData = z.infer<typeof levelDataSchema>;

@@ -1,3 +1,4 @@
+import { updateAction } from "./actionMappings.js";
 import { Camera } from "./camera.js";
 import {
 	GAME_IN_PLAY,
@@ -8,7 +9,6 @@ import {
 	GAME_SCALE,
 } from "./constants.js";
 import { GameState } from "./gameState.js";
-import { updateInput } from "./input.js";
 import { lerp } from "./math.js";
 import { Particle } from "./particle.js";
 import { drawTextBox } from "./utils.js";
@@ -61,7 +61,6 @@ export class Game {
 	}
 
 	tick(seconds: number) {
-		updateInput();
 		let count = 0;
 		this.fixedPhysicsTick += seconds;
 		while (++count <= 3 && this.fixedPhysicsTick >= 0) {
@@ -117,5 +116,13 @@ export class Game {
 			this.width - 5 - c.measureText(text).width,
 			this.height - 5
 		);
+	}
+
+	keyDown(e: KeyboardEvent) {
+		updateAction(e.key, true);
+	}
+
+	keyUp(e: KeyboardEvent) {
+		updateAction(e.key, false);
 	}
 }

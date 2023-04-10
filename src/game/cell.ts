@@ -146,9 +146,6 @@ export class Cell {
 		const x = this.x;
 		const y = this.y;
 		c.beginPath();
-		if (this.type !== CELL_SOLID) {
-			console.log(this.type);
-		}
 		if (this.type === CELL_SOLID) {
 			c.moveTo(x, y);
 			c.lineTo(x, y + 1);

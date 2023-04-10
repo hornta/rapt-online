@@ -58,8 +58,7 @@ export class BackgroundCache {
 			xmin < this.xmin ||
 			xmax > this.xmax ||
 			ymin < this.ymin ||
-			ymax > this.ymax ||
-			this.ratio !== ratio;
+			ymax > this.ymax;
 		if (isCacheStale) {
 			this.modificationCount = gameState.modificationCount;
 

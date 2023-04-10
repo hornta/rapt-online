@@ -94,17 +94,16 @@ function drawCog(
 	const spokeRadius = radius * 0.8;
 	const spokeWidth1 = radius * 0.125;
 	const spokeWidth2 = radius * 0.05;
-
+	c.miterLimit = 1;
 	for (let loop = 0; loop < 2; loop++) {
-		// draw the vertices with zig-zags for triangle strips and outlines for line strip
 		for (let iter = 0; iter <= loop; iter++) {
 			c.beginPath();
 			for (let i = 0; i <= numVertices; i++) {
-				const angle = ((i + 0.25) / numVertices) * (2.0 * Math.PI);
+				const angle = ((i + 0.25) / numVertices) * (2 * Math.PI);
 				const s = Math.sin(angle);
 				const csn = Math.cos(angle);
 				const r1 = radius * 0.7;
-				const r2 = radius * (1.0 + Math.cos(angle * numTeeth * 0.5) * 0.1);
+				const r2 = radius * (1 + Math.cos(angle * numTeeth * 0.5) * 0.1);
 				if (!loop || !iter) {
 					c.lineTo(csn * r1, s * r1);
 				}
@@ -115,7 +114,7 @@ function drawCog(
 			c.stroke();
 		}
 		for (let i = 0; i < numSpokes; i++) {
-			const angle = (i / numSpokes) * (Math.PI * 2.0);
+			const angle = (i / numSpokes) * (Math.PI * 2);
 			const s = Math.sin(angle);
 			const csn = Math.cos(angle);
 			c.beginPath();

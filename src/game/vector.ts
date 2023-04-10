@@ -132,6 +132,10 @@ export class Vector {
 		this.y = v.y;
 	}
 
+	floor() {
+		return new Vector(Math.floor(this.x), Math.floor(this.y));
+	}
+
 	static fromAngle(theta: number) {
 		return new Vector(Math.cos(theta), Math.sin(theta));
 	}
@@ -142,5 +146,9 @@ export class Vector {
 
 	static fromTuple([a, b]: [number, number]) {
 		return new Vector(a, b);
+	}
+
+	static toTuple(v: Vector) {
+		return [v.x, v.y] as [number, number];
 	}
 }
