@@ -114,8 +114,6 @@ export class BouncyRocketLauncher extends SpawningEnemy {
 		return Number(this.target === gameState.playerB);
 	}
 
-	reactToPlayer(): void {}
-
 	reactToWorld(): void {}
 
 	move(): Vector {

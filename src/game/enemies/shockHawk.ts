@@ -93,7 +93,5 @@ export class ShockHawk extends HoveringEnemy {
 		this.bodySprite.draw(c);
 	}
 
-	reactToPlayer(): void {}
-
 	reactToWorld() {}
 }

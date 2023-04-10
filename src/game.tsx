@@ -51,7 +51,7 @@ export const Game = ({ level }: GameProps) => {
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	useLayoutEffect(() => {
 		if (canvasRef.current) {
-			initGame(canvasRef.current, level, false);
+			return initGame(canvasRef.current, level, false);
 		}
 	}, [level]);
 
