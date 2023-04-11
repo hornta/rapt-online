@@ -5,6 +5,8 @@ export const Start = () => {
 	return (
 		<>
 			<Link to="editor">Editor</Link>
+
+			<h2 className="font-medium text-lg">Official levels</h2>
 			<ul>
 				{Object.entries(LEVEL_DATA).map(([key]) => {
 					return (

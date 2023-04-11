@@ -1,5 +1,6 @@
 import { AABB } from "../aabb.js";
 import { Enemy } from "../enemy.js";
+import { Player } from "../player.js";
 import { Vector } from "../vector.js";
 
 export abstract class SpawningEnemy extends Enemy {
@@ -53,4 +54,6 @@ export abstract class SpawningEnemy extends Enemy {
 	// Subclasses of this should overwrite Spawn() to spawn the right type of enemy
 	// Returns true iff an enemy is actually spawned
 	abstract spawn(): boolean;
+
+	reactToPlayer(player: Player): void {}
 }

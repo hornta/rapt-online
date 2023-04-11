@@ -6,6 +6,8 @@ import { Level } from "./Level.js";
 import { Start } from "./Start.js";
 import { Editor } from "./Editor.js";
 import { ClerkProvider } from "@clerk/clerk-react";
+import { Provider } from "react-redux";
+import { store } from "./store.js";
 
 const router = createBrowserRouter([
 	{
@@ -21,7 +23,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 		<ClerkProvider
 			publishableKey={import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY}
 		>
-			<RouterProvider router={router} />
+			<Provider store={store}>
+				<RouterProvider router={router} />
+			</Provider>
 		</ClerkProvider>
 	</React.StrictMode>
 );

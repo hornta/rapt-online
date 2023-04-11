@@ -20,14 +20,13 @@ export const User = () => {
 				</span>
 			) : (
 				<>
-					<span className="italic">Not logged in</span>,{" "}
 					<button
 						className="text-violet-500 underline font-normal cursor-pointer"
 						onClick={() => {
 							clerk.openSignIn({ redirectUrl: location.href });
 						}}
 					>
-						login
+						Login
 					</button>
 				</>
 			)}

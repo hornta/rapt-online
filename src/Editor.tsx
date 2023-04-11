@@ -30,6 +30,8 @@ import { initGame } from "./game.js";
 import { HelpPanel } from "./components/HelpPanel.js";
 import { levelDataSchema } from "./schemas.js";
 import { User } from "./components/User.js";
+import { useUser } from "@clerk/clerk-react";
+import { SaveLevelModal } from "./SaveLevelModal.js";
 
 function mousePoint(canvas: HTMLCanvasElement, event: MouseEvent | WheelEvent) {
 	return new Vector(
@@ -43,6 +45,7 @@ export const Editor = () => {
 	const [enemyIndex, setEnemyIndex] = useState(0);
 	const [wallAndButtonIndex, setWallAndButtonIndex] = useState(0);
 	const [isTesting, setIsTesting] = useState(false);
+	const [isSaving, setIsSaving] = useState(false);
 
 	const onChangeButton = (button: string) => {
 		setButton(button);
@@ -106,8 +109,16 @@ export const Editor = () => {
 		event.preventDefault();
 	};
 
+	const user = useUser();
+
 	useEffect(() => {
 		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.target instanceof Element) {
+				if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+					return;
+				}
+			}
+
 			if (isTesting) {
 				if (e.code === "Escape" && isTesting) {
 					setIsTesting(false);
@@ -128,7 +139,9 @@ export const Editor = () => {
 					e.preventDefault();
 				} else if (e.code === "KeyS") {
 					e.preventDefault();
-					// const cleanIndex = editor.doc.undoStack.getCurrentIndex();
+					if (!user.isSignedIn) {
+						alert("You must be signed in to save the level");
+					}
 					// ajaxPutLevel(editor.save(), () => {
 					// 	editor.doc.undoStack.setCleanIndex(cleanIndex);
 					// });
@@ -150,7 +163,7 @@ export const Editor = () => {
 			document.removeEventListener("keydown", onKeyDown);
 			document.removeEventListener("keyup", onKeyUp);
 		};
-	}, [isTesting]);
+	}, [isTesting, user.isSignedIn]);
 
 	useEffect(() => {
 		if (editorInstance.current) {
@@ -212,6 +225,12 @@ export const Editor = () => {
 
 	return (
 		<div className="overflow-hidden">
+			<SaveLevelModal
+				open={isSaving}
+				onClose={() => {
+					setIsSaving(false);
+				}}
+			/>
 			<div
 				ref={toolbarRef}
 				className="flex gap-x-4 flex-wrap border border-b-gray-800 p-4 bg-gradient-to-t from-gray-300 to-gray-200"
@@ -263,7 +282,7 @@ export const Editor = () => {
 						selected={button}
 					></ToggleButtonGroup>
 				</div>
-				<div className="ml-auto">
+				<div className="ml-auto text-right">
 					<ButtonGroup>
 						<Button
 							onClick={() => {
@@ -281,7 +300,13 @@ export const Editor = () => {
 						>
 							{isTesting ? "Stop" : "Test"}
 						</Button>
-						<Button>Save</Button>
+						<Button
+							onClick={() => {
+								setIsSaving(true);
+							}}
+						>
+							Save
+						</Button>
 						<Button
 							onClick={async () => {
 								if (editorInstance.current) {

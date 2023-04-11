@@ -11,7 +11,6 @@ import {
 } from "../constants.js";
 import { Contact } from "../contact.js";
 import { Edge } from "../edge.js";
-import { Entity } from "../entity.js";
 import { gameState } from "../game.js";
 import { Keyframe } from "../keyframe.js";
 import { randInRange } from "../math.js";
@@ -247,7 +246,7 @@ export class RocketSpiderLegs extends WalkingEnemy {
 	// The legs of the spider are responsible for killing the body
 	setDead(isDead: boolean) {
 		this.body.isDead = isDead;
-		Entity.prototype.isDead = isDead;
+		this.isDead = isDead;
 	}
 
 	onDeath() {

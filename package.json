@@ -1,35 +1,43 @@
 {
-  "name": "rapt-online",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@clerk/clerk-react": "^4.14.2",
-    "clsx": "^1.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0",
-    "zod": "^3.21.4"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "@vitejs/plugin-react": "^3.1.0",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.37.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.1",
-    "typescript": "^4.9.3",
-    "vite": "^4.2.0"
-  }
+	"name": "rapt-online",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"vercel-dev-helper": "vite --port $PORT",
+		"vdev": "vercel dev --local-config ./vercel-dev.json",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@clerk/clerk-react": "^4.14.2",
+		"@clerk/nextjs": "^4.15.0",
+		"@floating-ui/react": "^0.23.0",
+		"@reduxjs/toolkit": "^1.9.3",
+		"clsx": "^1.2.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-hook-form": "^7.43.9",
+		"react-redux": "^8.0.5",
+		"react-router-dom": "^6.10.0",
+		"vercel": "^28.18.4",
+		"zod": "^3.21.4"
+	},
+	"devDependencies": {
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
+		"@vitejs/plugin-react": "^3.1.0",
+		"autoprefixer": "^10.4.14",
+		"eslint": "^8.37.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"postcss": "^8.4.21",
+		"tailwindcss": "^3.3.1",
+		"typescript": "^4.9.3",
+		"vite": "^4.2.0"
+	}
 }
