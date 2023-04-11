@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { forwardRef, type TextareaHTMLAttributes } from "react";
-import { COMMON_INPUT_CLASS } from "./Input.js";
+import { COMMON_INPUT_CLASS } from "./Input.jsx";
 
 export interface TextareaProps
 	extends TextareaHTMLAttributes<HTMLTextAreaElement> {

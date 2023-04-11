@@ -4,8 +4,8 @@ import { Door } from "../game/editor/placeables/door.js";
 import { drawButton } from "../game/editor/sprites.js";
 import { dashedLine, rgba } from "../game/utils.js";
 import { Vector } from "../game/vector.js";
-import { CanvasButtonRow } from "./CanvasButtonRow.js";
-import { SectionLabel } from "./SectionLabel.js";
+import { CanvasButtonRow } from "./CanvasButtonRow.jsx";
+import { SectionLabel } from "./SectionLabel.jsx";
 
 interface WallAndButtonsPanelProps {
 	onChange: (index: number) => void;

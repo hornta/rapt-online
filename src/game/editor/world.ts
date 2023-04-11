@@ -438,7 +438,7 @@ export class World {
 
 				case "enemy":
 					this.placeables.push(
-						spriteTemplates[enemyToSpriteMap[e["type"]]].sprite.clone(
+						spriteTemplates[enemyToSpriteMap[e.type]].sprite.clone(
 							Vector.fromTuple(e["pos"]),
 							e["color"],
 							e["angle"]

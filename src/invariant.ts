@@ -10,7 +10,7 @@ export function invariant(
 		return;
 	}
 
-	if (import.meta.env.PROD) {
+	if (process.env.NODE_ENV === "development") {
 		throw new Error(prefix);
 	}
 

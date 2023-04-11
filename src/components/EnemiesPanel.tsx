@@ -1,6 +1,6 @@
 import { neutralEnemies, colorEnemies } from "../game/editor/enemies.js";
-import { CanvasButtonRow } from "./CanvasButtonRow.js";
-import { SectionLabel } from "./SectionLabel.js";
+import { CanvasButtonRow } from "./CanvasButtonRow.jsx";
+import { SectionLabel } from "./SectionLabel.jsx";
 
 const splitIntoGroupsOfSize = <T,>(items: T[], size: number) => {
 	return items.reduce<T[][]>((acc, curr, i) => {

@@ -1,4 +1,4 @@
-import { CanvasButton, CanvasItem } from "./CanvasButton.js";
+import { CanvasButton, CanvasItem } from "./CanvasButton.jsx";
 
 interface CanvasButtonRowProps {
 	items: CanvasItem[];

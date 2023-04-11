@@ -1,5 +1,5 @@
-import { Button } from "./Button.js";
-import { ButtonGroup } from "./ButtonGroup.js";
+import { Button } from "./Button.jsx";
+import { ButtonGroup } from "./ButtonGroup.jsx";
 
 interface ToggleButtonGroupProps {
 	label?: string;

@@ -1,39 +1,47 @@
+"use client";
+
+import { SaveLevelModal } from "@/SaveLevelModal.jsx";
+import { Button } from "@/components/Button.jsx";
+import { ButtonGroup } from "@/components/ButtonGroup.jsx";
+import { EnemiesPanel } from "@/components/EnemiesPanel.jsx";
+import { HelpPanel } from "@/components/HelpPanel.jsx";
+import { ToggleButtonGroup } from "@/components/ToggleButtonGroup.jsx";
+import { WallAndButtonsPanel } from "@/components/WallAndButtonsPanel.jsx";
+import { initGame } from "@/game.jsx";
 import {
-	MouseEvent,
-	MouseEventHandler,
-	WheelEventHandler,
+	MODE_EMPTY,
+	MODE_SOLID,
+	MODE_DIAGONAL,
+	MODE_START,
+	MODE_GOAL,
+	MODE_ENEMIES,
+	MODE_WALLS_BUTTONS,
+	MODE_SIGN,
+	MODE_SELECT,
+	MODE_HELP,
+} from "@/game/editor/editor.js";
+import { levelDataSchema } from "@/schemas.js";
+import { useUser } from "@clerk/clerk-react";
+import {
+	useState,
+	useRef,
 	useEffect,
 	useLayoutEffect,
-	useRef,
-	useState,
+	MouseEventHandler,
+	WheelEventHandler,
+	WheelEvent,
+	MouseEvent,
 } from "react";
-import {
-	Editor as EditorClass,
-	MODE_DIAGONAL,
-	MODE_EMPTY,
-	MODE_ENEMIES,
-	MODE_GOAL,
-	MODE_HELP,
-	MODE_SELECT,
-	MODE_SIGN,
-	MODE_SOLID,
-	MODE_START,
-	MODE_WALLS_BUTTONS,
-} from "./game/editor/editor.js";
-import { Vector } from "./game/vector.js";
-import { Button } from "./components/Button.js";
-import { EnemiesPanel } from "./components/EnemiesPanel.js";
-import { ToggleButtonGroup } from "./components/ToggleButtonGroup.js";
-import { WallAndButtonsPanel } from "./components/WallAndButtonsPanel.js";
-import { ButtonGroup } from "./components/ButtonGroup.js";
-import { initGame } from "./game.js";
-import { HelpPanel } from "./components/HelpPanel.js";
-import { levelDataSchema } from "./schemas.js";
-import { User } from "./components/User.js";
-import { useUser } from "@clerk/clerk-react";
-import { SaveLevelModal } from "./SaveLevelModal.js";
+import { Editor as EditorClass } from "@/game/editor/editor.js";
+import { Vector } from "@/game/vector.js";
+import { User } from "@/components/User.js";
 
-function mousePoint(canvas: HTMLCanvasElement, event: MouseEvent | WheelEvent) {
+function mousePoint(
+	canvas: HTMLCanvasElement,
+	event:
+		| MouseEvent<HTMLCanvasElement, globalThis.MouseEvent>
+		| WheelEvent<HTMLCanvasElement>
+) {
 	return new Vector(
 		event.pageX - canvas.offsetLeft,
 		event.pageY - canvas.offsetTop
