@@ -1,14 +1,14 @@
-import { ENEMY_BOUNCY_ROCKET } from "../constants.js";
-import { gameState } from "../game.js";
-import { Player } from "../player.js";
-import { Vector } from "../vector.js";
-import { BouncyRocketLauncher } from "./bouncyRocketLauncher.js";
+import { ENEMY_BOUNCY_ROCKET } from "../constants";
+import { gameState } from "../game";
+import { Player } from "../player";
+import { Vector } from "../vector";
+import { BouncyRocketLauncher } from "./bouncyRocketLauncher";
 import {
 	ROCKET_RADIUS,
 	ROCKET_SPRITE_BLUE,
 	ROCKET_SPRITE_RED,
 	Rocket,
-} from "./rocket.js";
+} from "./rocket";
 
 const BOUNCY_ROCKET_SPEED = 4;
 const BOUNCY_ROCKET_MAX_ROTATION = 3;

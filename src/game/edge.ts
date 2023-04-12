@@ -8,9 +8,9 @@ import {
 	EDGE_FLOOR,
 	EDGE_LEFT,
 	EDGE_RIGHT,
-} from "./constants.js";
-import { Segment } from "./segment.js";
-import { Vector } from "./vector.js";
+} from "./constants";
+import { Segment } from "./segment";
+import { Vector } from "./vector";
 
 export class Edge {
 	segment: Segment;

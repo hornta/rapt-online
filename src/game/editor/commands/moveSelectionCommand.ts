@@ -1,7 +1,7 @@
-import { Vector } from "../../vector.js";
-import { BasePlaceable } from "../placeables/placeable.js";
-import { World } from "../world.js";
-import { Command } from "./command.js";
+import { Vector } from "../../vector";
+import { BasePlaceable } from "../placeables/placeable";
+import { World } from "../world";
+import { Command } from "./command";
 
 export class MoveSelectionCommand extends Command {
 	world: World;

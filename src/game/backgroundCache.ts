@@ -1,8 +1,8 @@
 // caching strategy: cache the level background around each player on two
 // canvases twice the size of the screen and re-center them as needed
 
-import { GAME_SCALE } from "./constants.js";
-import { gameState } from "./game.js";
+import { GAME_SCALE } from "./constants";
+import { gameState } from "./game";
 
 export class BackgroundCache {
 	canvas: HTMLCanvasElement;

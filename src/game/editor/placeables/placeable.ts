@@ -1,5 +1,5 @@
-import { Vector } from "../../vector.js";
-import { Rectangle } from "../shapes.js";
+import { Vector } from "../../vector";
+import { Rectangle } from "../shapes";
 
 export type PlaceableType = "button" | "door" | "sprite" | "link";
 

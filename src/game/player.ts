@@ -2,7 +2,7 @@ import {
 	closestToEntityWorld,
 	collideEntityWorld,
 	onEntityWorld,
-} from "./collisionDetection.js";
+} from "./collisionDetection";
 import {
 	EDGE_CEILING,
 	EDGE_FLOOR,
@@ -30,19 +30,19 @@ import {
 	STAT_PLAYER_DEATHS,
 	SUPER_PARTICLE_TIMER_PERIOD,
 	WALL_FRICTION,
-} from "./constants.js";
-import { Contact } from "./contact.js";
-import { Edge } from "./edge.js";
-import { edgeQuad } from "./edgeQuad.js";
-import { Entity } from "./entity.js";
-import { gameState } from "./game.js";
-import { Keyframe } from "./keyframe.js";
-import { lerp, randInRange } from "./math.js";
-import { Particle } from "./particle.js";
-import { Polygon } from "./polygon.js";
-import { Sprite } from "./sprite.js";
-import { TupleOf } from "./utils.js";
-import { Vector } from "./vector.js";
+} from "./constants";
+import { Contact } from "./contact";
+import { Edge } from "./edge";
+import { edgeQuad } from "./edgeQuad";
+import { Entity } from "./entity";
+import { gameState } from "./game";
+import { Keyframe } from "./keyframe";
+import { lerp, randInRange } from "./math";
+import { Particle } from "./particle";
+import { Polygon } from "./polygon";
+import { Sprite } from "./sprite";
+import { TupleOf } from "./utils";
+import { Vector } from "./vector";
 
 const PLAYER_HEAD = 0;
 const PLAYER_TORSO = 1;

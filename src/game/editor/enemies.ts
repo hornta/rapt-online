@@ -1,6 +1,6 @@
-import { CanvasItem } from "../../components/CanvasButton.js";
-import { COLOR_BLUE, COLOR_RED } from "../constants.js";
-import { Vector } from "../vector.js";
+import { CanvasItem } from "../../components/CanvasButton";
+import { COLOR_BLUE, COLOR_RED } from "../constants";
+import { Vector } from "../vector";
 import {
 	spriteTemplates,
 	SPRITE_BOMBER,
@@ -21,7 +21,7 @@ import {
 	SPRITE_STALACBAT,
 	SPRITE_WALL_AVOIDER,
 	Sprite,
-} from "./placeables/sprite.js";
+} from "./placeables/sprite";
 
 export const neutralEnemies: CanvasItem[] = [
 	spriteTemplates[SPRITE_BOMBER],

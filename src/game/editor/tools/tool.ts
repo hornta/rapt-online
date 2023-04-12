@@ -1,5 +1,5 @@
-import { Vector } from "../../vector.js";
-import { Editor } from "../editor.js";
+import { Vector } from "../../vector";
+import { Editor } from "../editor";
 
 export abstract class Tool {
 	modifierKeyPressed: boolean;

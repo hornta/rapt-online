@@ -1,5 +1,5 @@
-import { Command } from "./commands/command.js";
-import { MacroCommand } from "./commands/macroCommand.js";
+import { Command } from "./commands/command";
+import { MacroCommand } from "./commands/macroCommand";
 
 export class UndoStack {
 	commands: Command[];

@@ -9,9 +9,9 @@
 // Particle().position(center).color(0.9, 0, 0, 0.5).mixColor(1, 0, 0, 1).gravity(1).triangle()
 // Particle().position(center).velocity(velocity).color(0, 0, 0, 1).gravity(0.4, 0.6).circle()
 
-import { drawMinX, drawMinY, drawMaxX, drawMaxY } from "./gameState.js";
-import { randInRange, lerp } from "./math.js";
-import { Vector } from "./vector.js";
+import { drawMinX, drawMinY, drawMaxX, drawMaxY } from "./gameState";
+import { randInRange, lerp } from "./math";
+import { Vector } from "./vector";
 
 // enum ParticleType
 const PARTICLE_CIRCLE = 0;

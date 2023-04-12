@@ -1,10 +1,10 @@
-import { ENEMY_WHEELIGATOR, EDGE_FLOOR } from "../constants.js";
-import { Contact } from "../contact.js";
-import { Edge } from "../edge.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { FREEFALL_ACCEL } from "./freefallEnemy.js";
-import { WalkingEnemy } from "./walkingEnemy.js";
+import { ENEMY_WHEELIGATOR, EDGE_FLOOR } from "../constants";
+import { Contact } from "../contact";
+import { Edge } from "../edge";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { FREEFALL_ACCEL } from "./freefallEnemy";
+import { WalkingEnemy } from "./walkingEnemy";
 
 const WHEELIGATOR_RADIUS = 0.3;
 const WHEELIGATOR_SPEED = 3;

@@ -5,12 +5,12 @@ import {
 	CELL_CEIL_DIAG_RIGHT,
 	CELL_EMPTY,
 	CELL_SOLID,
-} from "../../constants.js";
-import { rgba } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Cell } from "../cell.js";
-import { Document } from "../document.js";
-import { Tool } from "./tool.js";
+} from "../../constants";
+import { rgba } from "../../utils";
+import { Vector } from "../../vector";
+import { Cell } from "../cell";
+import { Document } from "../document";
+import { Tool } from "./tool";
 
 export const SETCELL_EMPTY = 0;
 export const SETCELL_SOLID = 1;

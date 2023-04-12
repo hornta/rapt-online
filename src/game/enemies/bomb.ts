@@ -1,8 +1,8 @@
-import { ENEMY_BOMB } from "../constants.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Vector } from "../vector.js";
-import { FreefallEnemy } from "./freefallEnemy.js";
+import { ENEMY_BOMB } from "../constants";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Vector } from "../vector";
+import { FreefallEnemy } from "./freefallEnemy";
 
 export const BOMB_RADIUS = 0.15;
 

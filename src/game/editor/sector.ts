@@ -1,6 +1,6 @@
-import { CELL_SOLID } from "../constants.js";
-import { Vector } from "../vector.js";
-import { Cell } from "./cell.js";
+import { CELL_SOLID } from "../constants";
+import { Vector } from "../vector";
+import { Cell } from "./cell";
 
 export const SECTOR_SIZE = 8;
 

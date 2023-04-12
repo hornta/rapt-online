@@ -1,10 +1,10 @@
-import { dashedLine, rgba } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Edge } from "../edge.js";
-import { Rectangle } from "../shapes.js";
-import { Button } from "./button.js";
-import { Door } from "./door.js";
-import { BasePlaceable } from "./placeable.js";
+import { dashedLine, rgba } from "../../utils";
+import { Vector } from "../../vector";
+import { Edge } from "../edge";
+import { Rectangle } from "../shapes";
+import { Button } from "./button";
+import { Door } from "./door";
+import { BasePlaceable } from "./placeable";
 
 export class Link extends BasePlaceable {
 	door: Door;

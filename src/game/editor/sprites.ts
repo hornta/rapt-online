@@ -1,6 +1,6 @@
-import { randInRange } from "../math.js";
-import { rgba, drawTextBox, splitUpText } from "../utils.js";
-import { Vector } from "../vector.js";
+import { randInRange } from "../math";
+import { rgba, drawTextBox, splitUpText } from "../utils";
+import { Vector } from "../vector";
 
 export const drawSpawnPoint = function (
 	c: CanvasRenderingContext2D,

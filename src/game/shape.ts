@@ -1,5 +1,5 @@
-import { AABB } from "./aabb.js";
-import { Vector } from "./vector.js";
+import { AABB } from "./aabb";
+import { Vector } from "./vector";
 
 export interface Shape {
 	getCenter(): Vector;

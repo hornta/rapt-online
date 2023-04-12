@@ -1,11 +1,11 @@
-import { ENEMY_CLOUD } from "./constants.js";
-import { RotatingEnemy } from "./enemies/rotatingEnemy.js";
-import { gameState } from "./game.js";
-import { randInRange } from "./math.js";
-import { Particle } from "./particle.js";
-import { Player } from "./player.js";
-import { adjustAngleToTarget } from "./utils.js";
-import { Vector } from "./vector.js";
+import { ENEMY_CLOUD } from "./constants";
+import { RotatingEnemy } from "./enemies/rotatingEnemy";
+import { gameState } from "./game";
+import { randInRange } from "./math";
+import { Particle } from "./particle";
+import { Player } from "./player";
+import { adjustAngleToTarget } from "./utils";
+import { Vector } from "./vector";
 
 const CORROSION_CLOUD_RADIUS = 0.5;
 const CORROSION_CLOUD_SPEED = 0.7;

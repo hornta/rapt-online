@@ -10,9 +10,9 @@ import {
 	useFloatingNodeId,
 	useInteractions,
 } from "@floating-ui/react";
-import { Button } from "./Button.jsx";
-import { GroupedTransition } from "./GroupedTransition.jsx";
-import { getSize } from "../utils/getSize.js";
+import { Button } from "./Button";
+import { GroupedTransition } from "./GroupedTransition";
+import { getSize } from "../utils/getSize";
 
 const sizes = {
 	xs: 320,

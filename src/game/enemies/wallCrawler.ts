@@ -1,9 +1,9 @@
-import { closestToEntityWorld } from "../collisionDetection.js";
-import { ENEMY_CRAWLER } from "../constants.js";
-import { gameState } from "../game.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { WalkingEnemy } from "./walkingEnemy.js";
+import { closestToEntityWorld } from "../collisionDetection";
+import { ENEMY_CRAWLER } from "../constants";
+import { gameState } from "../game";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { WalkingEnemy } from "./walkingEnemy";
 
 const WALL_CRAWLER_SPEED = 1;
 const WALL_CRAWLER_RADIUS = 0.25;

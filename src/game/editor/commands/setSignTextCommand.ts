@@ -1,5 +1,5 @@
-import { Sprite } from "../placeables/sprite.js";
-import { Command } from "./command.js";
+import { Sprite } from "../placeables/sprite";
+import { Command } from "./command";
 
 export class SetSignTextCommand extends Command {
 	sign: Sprite;

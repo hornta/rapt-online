@@ -1,6 +1,6 @@
-import { Vector } from "../../vector.js";
-import { World } from "../world.js";
-import { Command } from "./command.js";
+import { Vector } from "../../vector";
+import { World } from "../world";
+import { Command } from "./command";
 
 export class SetPlayerGoalCommand extends Command {
 	world: World;

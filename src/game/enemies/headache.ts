@@ -1,11 +1,11 @@
-import { lineOfSightWorld } from "../collisionDetection.js";
-import { ENEMY_HEADACHE, GAME_SCALE, STAT_ENEMY_DEATHS } from "../constants.js";
-import { gameState } from "../game.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Player } from "../player.js";
-import { Vector } from "../vector.js";
-import { HoveringEnemy } from "./hoveringEnemy.js";
+import { lineOfSightWorld } from "../collisionDetection";
+import { ENEMY_HEADACHE, GAME_SCALE, STAT_ENEMY_DEATHS } from "../constants";
+import { gameState } from "../game";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Player } from "../player";
+import { Vector } from "../vector";
+import { HoveringEnemy } from "./hoveringEnemy";
 
 const HEADACHE_RADIUS = 0.15;
 const HEADACHE_ELASTICITY = 0;

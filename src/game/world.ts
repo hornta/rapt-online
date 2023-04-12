@@ -1,5 +1,5 @@
-import { AABB } from "./aabb.js";
-import { Cell } from "./cell.js";
+import { AABB } from "./aabb";
+import { Cell } from "./cell";
 import {
 	CELL_SOLID,
 	CELL_EMPTY,
@@ -8,9 +8,9 @@ import {
 	CELL_CEIL_DIAG_LEFT,
 	CELL_FLOOR_DIAG_LEFT,
 	EDGE_NEUTRAL,
-} from "./constants.js";
-import { Edge } from "./edge.js";
-import { Vector } from "./vector.js";
+} from "./constants";
+import { Edge } from "./edge";
+import { Vector } from "./vector";
 
 const WORLD_MARGIN = 60;
 

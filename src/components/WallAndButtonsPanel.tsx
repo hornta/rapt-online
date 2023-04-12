@@ -1,11 +1,11 @@
-import { COLOR_NEUTRAL } from "../game/constants.js";
-import { Edge } from "../game/editor/edge.js";
-import { Door } from "../game/editor/placeables/door.js";
-import { drawButton } from "../game/editor/sprites.js";
-import { dashedLine, rgba } from "../game/utils.js";
-import { Vector } from "../game/vector.js";
-import { CanvasButtonRow } from "./CanvasButtonRow.jsx";
-import { SectionLabel } from "./SectionLabel.jsx";
+import { COLOR_NEUTRAL } from "../game/constants";
+import { Edge } from "../game/editor/edge";
+import { Door } from "../game/editor/placeables/door";
+import { drawButton } from "../game/editor/sprites";
+import { dashedLine, rgba } from "../game/utils";
+import { Vector } from "../game/vector";
+import { CanvasButtonRow } from "./CanvasButtonRow";
+import { SectionLabel } from "./SectionLabel";
 
 interface WallAndButtonsPanelProps {
 	onChange: (index: number) => void;

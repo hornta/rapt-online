@@ -1,7 +1,7 @@
-import { Cell } from "./cell.js";
-import { DOORBELL_OPEN, DOORBELL_CLOSE, DOORBELL_TOGGLE } from "./constants.js";
-import { Edge } from "./edge.js";
-import { gameState } from "./game.js";
+import { Cell } from "./cell";
+import { DOORBELL_OPEN, DOORBELL_CLOSE, DOORBELL_TOGGLE } from "./constants";
+import { Edge } from "./edge";
+import { gameState } from "./game";
 
 export class Door {
 	cells: [Cell | null, Cell | null];

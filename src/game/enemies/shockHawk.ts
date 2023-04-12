@@ -1,9 +1,9 @@
-import { ENEMY_SHOCK_HAWK, STAT_ENEMY_DEATHS } from "../constants.js";
-import { gameState } from "../game.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { HoveringEnemy } from "./hoveringEnemy.js";
+import { ENEMY_SHOCK_HAWK, STAT_ENEMY_DEATHS } from "../constants";
+import { gameState } from "../game";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { HoveringEnemy } from "./hoveringEnemy";
 
 const SHOCK_HAWK_RADIUS = 0.3;
 const SHOCK_HAWK_ACCEL = 6;

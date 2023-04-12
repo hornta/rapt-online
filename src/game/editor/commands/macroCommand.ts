@@ -1,4 +1,4 @@
-import { Command } from "./command.js";
+import { Command } from "./command";
 
 export class MacroCommand extends Command {
 	commands: Command[];

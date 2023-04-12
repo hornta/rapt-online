@@ -1,15 +1,15 @@
-import { Circle } from "./circle.js";
+import { Circle } from "./circle";
 import {
 	collideEntityWorld,
 	containsPointShape,
 	overlapShapePlayers,
-} from "./collisionDetection.js";
-import { EDGE_ENEMIES } from "./constants.js";
-import { Contact } from "./contact.js";
-import { Entity } from "./entity.js";
-import { gameState } from "./game.js";
-import { Player } from "./player.js";
-import { Vector } from "./vector.js";
+} from "./collisionDetection";
+import { EDGE_ENEMIES } from "./constants";
+import { Contact } from "./contact";
+import { Entity } from "./entity";
+import { gameState } from "./game";
+import { Player } from "./player";
+import { Vector } from "./vector";
 
 const MAX_SPAWN_FORCE = 100.0;
 const INNER_SPAWN_RADIUS = 1.0;

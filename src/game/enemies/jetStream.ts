@@ -1,9 +1,9 @@
-import { ENEMY_JET_STREAM } from "../constants.js";
-import { gameState } from "../game.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { RiotBullet } from "./riotBullet.js";
-import { SpawningEnemy } from "./spawningEntity.js";
+import { ENEMY_JET_STREAM } from "../constants";
+import { gameState } from "../game";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { RiotBullet } from "./riotBullet";
+import { SpawningEnemy } from "./spawningEntity";
 
 const JET_STREAM_WIDTH = 0.4;
 const JET_STREAM_HEIGHT = 0.4;

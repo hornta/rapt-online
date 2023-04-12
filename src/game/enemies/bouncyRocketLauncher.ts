@@ -1,11 +1,11 @@
-import { lineOfSightWorld } from "../collisionDetection.js";
-import { ENEMY_BOUNCY_ROCKET_LAUNCHER } from "../constants.js";
-import { gameState } from "../game.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { BouncyRocket } from "./bouncyRocket.js";
-import { SpawningEnemy } from "./spawningEntity.js";
+import { lineOfSightWorld } from "../collisionDetection";
+import { ENEMY_BOUNCY_ROCKET_LAUNCHER } from "../constants";
+import { gameState } from "../game";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { BouncyRocket } from "./bouncyRocket";
+import { SpawningEnemy } from "./spawningEntity";
 
 const BOUNCY_LAUNCHER_WIDTH = 0.5;
 const BOUNCY_LAUNCHER_HEIGHT = 0.5;

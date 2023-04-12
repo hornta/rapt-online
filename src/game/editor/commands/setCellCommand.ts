@@ -1,5 +1,5 @@
-import { World } from "../world.js";
-import { Command } from "./command.js";
+import { World } from "../world";
+import { Command } from "./command";
 
 export class SetCellCommand extends Command {
 	world: World;

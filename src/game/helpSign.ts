@@ -1,8 +1,8 @@
-import { AABB } from "./aabb.js";
-import { ENEMY_HELP_SIGN, GAME_SCALE } from "./constants.js";
-import { Enemy } from "./enemy.js";
-import { drawTextBox } from "./utils.js";
-import { Vector } from "./vector.js";
+import { AABB } from "./aabb";
+import { ENEMY_HELP_SIGN, GAME_SCALE } from "./constants";
+import { Enemy } from "./enemy";
+import { drawTextBox } from "./utils";
+import { Vector } from "./vector";
 
 const HELP_SIGN_TEXT_WIDTH = 1.5;
 const HELP_SIGN_WIDTH = 0.76;

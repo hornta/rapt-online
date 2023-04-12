@@ -5,7 +5,7 @@ import {
 	CELL_CEIL_DIAG_RIGHT,
 	CELL_FLOOR_DIAG_LEFT,
 	CELL_FLOOR_DIAG_RIGHT,
-} from "../constants.js";
+} from "../constants";
 
 export class Cell {
 	type: 0 | 1 | 2 | 3 | 4 | 5;

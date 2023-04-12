@@ -1,14 +1,10 @@
-import { Circle } from "./circle.js";
-import {
-	GAME_IN_PLAY,
-	STAT_COGS_COLLECTED,
-	STAT_NUM_COGS,
-} from "./constants.js";
-import { Enemy } from "./enemy.js";
-import { gameState } from "./game.js";
-import { randInRange } from "./math.js";
-import { Particle } from "./particle.js";
-import { Vector } from "./vector.js";
+import { Circle } from "./circle";
+import { GAME_IN_PLAY, STAT_COGS_COLLECTED, STAT_NUM_COGS } from "./constants";
+import { Enemy } from "./enemy";
+import { gameState } from "./game";
+import { randInRange } from "./math";
+import { Particle } from "./particle";
+import { Vector } from "./vector";
 
 const GOLDEN_COG_RADIUS = 0.25;
 

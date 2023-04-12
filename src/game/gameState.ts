@@ -1,8 +1,8 @@
-import { LevelData } from "../schemas.js";
+import { LevelData } from "../schemas";
 import {
 	collideEntityWorld,
 	intersectEntitySegment,
-} from "./collisionDetection.js";
+} from "./collisionDetection";
 import {
 	EDGE_RED,
 	EDGE_BLUE,
@@ -14,19 +14,19 @@ import {
 	SPAWN_POINT_PARTICLE_FREQ,
 	CELL_SOLID,
 	TWO_WAY,
-} from "./constants.js";
-import { Door } from "./door.js";
-import { Doorbell } from "./doorbell.js";
-import { Edge } from "./edge.js";
-import { Enemy } from "./enemy.js";
-import { GoldenCog } from "./goldenCog.js";
-import { HelpSign } from "./helpSign.js";
-import { createDoor, createEnemy } from "./levelLoader.js";
-import { randInRange } from "./math.js";
-import { Particle } from "./particle.js";
-import { Player } from "./player.js";
-import { Vector } from "./vector.js";
-import { World } from "./world.js";
+} from "./constants";
+import { Door } from "./door";
+import { Doorbell } from "./doorbell";
+import { Edge } from "./edge";
+import { Enemy } from "./enemy";
+import { GoldenCog } from "./goldenCog";
+import { HelpSign } from "./helpSign";
+import { createDoor, createEnemy } from "./levelLoader";
+import { randInRange } from "./math";
+import { Particle } from "./particle";
+import { Player } from "./player";
+import { Vector } from "./vector";
+import { World } from "./world";
 
 function drawSpawnPoint(c: CanvasRenderingContext2D, point: Vector) {
 	c.strokeStyle = c.fillStyle = "rgba(255, 255, 255, 0.1)";

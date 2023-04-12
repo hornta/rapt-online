@@ -1,17 +1,16 @@
 import { useId } from "react";
-import { Button } from "./components/Button.js";
-import { Input } from "./components/Input.js";
-import { Label } from "./components/Label.js";
+import { Button } from "./components/Button";
+import { Input } from "./components/Input";
+import { Label } from "./components/Label";
 import {
 	Modal,
 	ModalTitle,
 	ModalContent,
 	ModalActions,
-} from "./components/Modal.js";
-import { Textarea } from "./components/Textarea.js";
-import { CheckboxField } from "./components/checkbox/CheckboxField.js";
+} from "./components/Modal";
+import { Textarea } from "./components/Textarea";
+import { CheckboxField } from "./components/checkbox/CheckboxField";
 import { useForm } from "react-hook-form";
-import { usePublishLevelMutation } from "./api.js";
 
 interface Inputs {
 	name: string;
@@ -37,7 +36,7 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 		},
 	});
 
-	const [publishLevel] = usePublishLevelMutation();
+	// const [publishLevel] = usePublishLevelMutation();
 
 	return (
 		<Modal open={open} onClose={onClose}>
@@ -46,12 +45,12 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 				<form
 					id={formId}
 					onSubmit={form.handleSubmit(async (data) => {
-						const result = await publishLevel({
-							description: data.description,
-							name: data.name,
-							one_player: data.one_player,
-							two_players: data.two_players,
-						});
+						// const result = await publishLevel({
+						// 	description: data.description,
+						// 	name: data.name,
+						// 	one_player: data.one_player,
+						// 	two_players: data.two_players,
+						// });
 					})}
 				>
 					<Label>Name</Label>

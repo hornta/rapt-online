@@ -1,9 +1,9 @@
-import { onEntityWorld } from "./collisionDetection.js";
-import { EDGE_FLOOR } from "./constants.js";
-import { edgeQuad } from "./edgeQuad.js";
-import { gameState } from "./game.js";
-import { Shape } from "./shape.js";
-import { Vector } from "./vector.js";
+import { onEntityWorld } from "./collisionDetection";
+import { EDGE_FLOOR } from "./constants";
+import { edgeQuad } from "./edgeQuad";
+import { gameState } from "./game";
+import { Shape } from "./shape";
+import { Vector } from "./vector";
 
 export abstract class Entity {
 	protected velocity = new Vector(0, 0);

@@ -1,7 +1,7 @@
-import { Circle } from "../circle.js";
-import { Enemy } from "../enemy.js";
-import { Player } from "../player.js";
-import { Vector } from "../vector.js";
+import { Circle } from "../circle";
+import { Enemy } from "../enemy";
+import { Player } from "../player";
+import { Vector } from "../vector";
 
 export const FREEFALL_ACCEL = -6;
 

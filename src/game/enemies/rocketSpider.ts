@@ -1,27 +1,24 @@
-import { Circle } from "../circle.js";
-import {
-	lineOfSightWorld,
-	overlapShapePlayers,
-} from "../collisionDetection.js";
+import { Circle } from "../circle";
+import { lineOfSightWorld, overlapShapePlayers } from "../collisionDetection";
 import {
 	EDGE_FLOOR,
 	ENEMY_ROCKET,
 	ENEMY_ROCKET_SPIDER,
 	STAT_ENEMY_DEATHS,
-} from "../constants.js";
-import { Contact } from "../contact.js";
-import { Edge } from "../edge.js";
-import { gameState } from "../game.js";
-import { Keyframe } from "../keyframe.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { FREEFALL_ACCEL } from "./freefallEnemy.js";
-import { Rocket } from "./rocket.js";
-import { SpawningEnemy } from "./spawningEntity.js";
-import { WalkingEnemy } from "./walkingEnemy.js";
+} from "../constants";
+import { Contact } from "../contact";
+import { Edge } from "../edge";
+import { gameState } from "../game";
+import { Keyframe } from "../keyframe";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { FREEFALL_ACCEL } from "./freefallEnemy";
+import { Rocket } from "./rocket";
+import { SpawningEnemy } from "./spawningEntity";
+import { WalkingEnemy } from "./walkingEnemy";
 
 const SPIDER_LEG_HEIGHT = 0.5;
 

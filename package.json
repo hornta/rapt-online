@@ -1,31 +1,34 @@
 {
-  "name": "rapt",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@clerk/nextjs": "^4.16.0",
-    "@floating-ui/react": "^0.23.0",
-    "@reduxjs/toolkit": "^1.9.3",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.34",
-    "@types/react-dom": "18.0.11",
-    "autoprefixer": "10.4.14",
-    "clsx": "^1.2.1",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
-    "postcss": "8.4.21",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.43.9",
-    "tailwindcss": "3.3.1",
-    "typescript": "5.0.4",
-    "zod": "^3.21.4"
-  }
+	"name": "rapt",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@clerk/nextjs": "^4.14.2",
+		"@floating-ui/react": "^0.23.0",
+		"@reduxjs/toolkit": "^1.9.3",
+		"@tanstack/react-query": "^4.29.1",
+		"@types/node": "18.15.11",
+		"@types/react": "18.0.34",
+		"@types/react-dom": "18.0.11",
+		"autoprefixer": "10.4.14",
+		"clsx": "^1.2.1",
+		"eslint": "8.38.0",
+		"eslint-config-next": "13.3.0",
+		"eslint-config-prettier": "^8.8.0",
+		"next": "^13.3.0",
+		"postcss": "8.4.21",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-hook-form": "^7.43.9",
+		"react-redux": "^8.0.5",
+		"tailwindcss": "3.3.1",
+		"typescript": "5.0.4",
+		"zod": "^3.21.4"
+	}
 }

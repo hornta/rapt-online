@@ -1,5 +1,5 @@
-import { updateAction } from "./actionMappings.js";
-import { Camera } from "./camera.js";
+import { updateAction } from "./actionMappings";
+import { Camera } from "./camera";
 import {
 	GAME_IN_PLAY,
 	GAME_WON,
@@ -7,11 +7,11 @@ import {
 	STAT_NUM_COGS,
 	GAME_LOST,
 	GAME_SCALE,
-} from "./constants.js";
-import { GameState } from "./gameState.js";
-import { lerp } from "./math.js";
-import { Particle } from "./particle.js";
-import { drawTextBox } from "./utils.js";
+} from "./constants";
+import { GameState } from "./gameState";
+import { lerp } from "./math";
+import { Particle } from "./particle";
+import { drawTextBox } from "./utils";
 
 // text constants
 const GAME_WIN_TEXT =

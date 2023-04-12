@@ -1,10 +1,10 @@
-import { ENEMY_BOMBER, STAT_ENEMY_DEATHS } from "../constants.js";
-import { gameState } from "../game.js";
-import { randInRange } from "../math.js";
-import { Player } from "../player.js";
-import { Vector } from "../vector.js";
-import { BOMB_RADIUS, Bomb } from "./bomb.js";
-import { SpawningEnemy } from "./spawningEntity.js";
+import { ENEMY_BOMBER, STAT_ENEMY_DEATHS } from "../constants";
+import { gameState } from "../game";
+import { randInRange } from "../math";
+import { Player } from "../player";
+import { Vector } from "../vector";
+import { BOMB_RADIUS, Bomb } from "./bomb";
+import { SpawningEnemy } from "./spawningEntity";
 
 const BOMBER_WIDTH = 0.4;
 const BOMBER_HEIGHT = 0.4;

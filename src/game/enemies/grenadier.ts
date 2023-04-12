@@ -1,12 +1,12 @@
-import { lineOfSightWorld } from "../collisionDetection.js";
-import { ENEMY_GRENADIER } from "../constants.js";
-import { gameState } from "../game.js";
-import { randInRange } from "../math.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { Grenade } from "./grenade.js";
-import { SpawningEnemy } from "./spawningEntity.js";
+import { lineOfSightWorld } from "../collisionDetection";
+import { ENEMY_GRENADIER } from "../constants";
+import { gameState } from "../game";
+import { randInRange } from "../math";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { Grenade } from "./grenade";
+import { SpawningEnemy } from "./spawningEntity";
 
 const GRENADIER_WIDTH = 0.5;
 const GRENADIER_HEIGHT = 0.5;

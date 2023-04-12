@@ -1,8 +1,8 @@
-import { rgba } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Circle, Rectangle } from "../shapes.js";
-import { drawButton } from "../sprites.js";
-import { BasePlaceable } from "./placeable.js";
+import { rgba } from "../../utils";
+import { Vector } from "../../vector";
+import { Circle, Rectangle } from "../shapes";
+import { drawButton } from "../sprites";
+import { BasePlaceable } from "./placeable";
 
 export class Button extends BasePlaceable {
 	type: 0 | 1 | 2;

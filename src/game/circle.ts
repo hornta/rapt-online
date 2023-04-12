@@ -1,7 +1,7 @@
-import { AABB } from "./aabb.js";
-import { SHAPE_CIRCLE } from "./constants.js";
-import { Shape } from "./shape.js";
-import { Vector } from "./vector.js";
+import { AABB } from "./aabb";
+import { SHAPE_CIRCLE } from "./constants";
+import { Shape } from "./shape";
+import { Vector } from "./vector";
 
 export class Circle implements Shape {
 	center: Vector;

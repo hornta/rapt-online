@@ -1,38 +1,38 @@
-import { LevelData } from "../../schemas.js";
+import { LevelData } from "../../schemas";
 import {
 	CELL_EMPTY,
 	MOUSE_LEFT,
 	MOUSE_MIDDLE,
 	MOUSE_RIGHT,
-} from "../constants.js";
-import { rgba } from "../utils.js";
-import { Vector } from "../vector.js";
-import { Document } from "./document.js";
-import { enemies } from "./enemies.js";
-import { Button } from "./placeables/button.js";
-import { BasePlaceable } from "./placeables/placeable.js";
+} from "../constants";
+import { rgba } from "../utils";
+import { Vector } from "../vector";
+import { Document } from "./document";
+import { enemies } from "./enemies";
+import { Button } from "./placeables/button";
+import { BasePlaceable } from "./placeables/placeable";
 import {
 	spriteTemplates,
 	SPRITE_SIGN,
 	SPRITE_COG,
 	Sprite,
-} from "./placeables/sprite.js";
-import { Rectangle } from "./shapes.js";
-import { AddPlaceableTool } from "./tools/addPlaceableTool.js";
-import { CameraPanTool } from "./tools/cameraPanTool.js";
-import { LinkButtonToDoorTool } from "./tools/linkButtonToDoorTool.js";
-import { PlaceDoorTool } from "./tools/placeDoorTool.js";
-import { SelectionTool } from "./tools/selectionTool.js";
+} from "./placeables/sprite";
+import { Rectangle } from "./shapes";
+import { AddPlaceableTool } from "./tools/addPlaceableTool";
+import { CameraPanTool } from "./tools/cameraPanTool";
+import { LinkButtonToDoorTool } from "./tools/linkButtonToDoorTool";
+import { PlaceDoorTool } from "./tools/placeDoorTool";
+import { SelectionTool } from "./tools/selectionTool";
 import {
 	SETCELL_DIAGONAL,
 	SETCELL_EMPTY,
 	SETCELL_SOLID,
 	SetCellTool,
-} from "./tools/setCellTool.js";
-import { SetPlayerGoalTool } from "./tools/setPlayerGoalTool.js";
-import { SetPlayerStartTool } from "./tools/setPlayerStartTool.js";
-import { ToggleInitiallyOpenTool } from "./tools/toggleInitiallyOpenTool.js";
-import { Tool } from "./tools/tool.js";
+} from "./tools/setCellTool";
+import { SetPlayerGoalTool } from "./tools/setPlayerGoalTool";
+import { SetPlayerStartTool } from "./tools/setPlayerStartTool";
+import { ToggleInitiallyOpenTool } from "./tools/toggleInitiallyOpenTool";
+import { Tool } from "./tools/tool";
 
 export const MODE_EMPTY = "empty";
 export const MODE_SOLID = "solid";

@@ -1,6 +1,6 @@
-import { TEXT_BOX_X_MARGIN, TEXT_BOX_Y_MARGIN } from "./constants.js";
-import { Edge } from "./editor/edge.js";
-import { Vector } from "./vector.js";
+import { TEXT_BOX_X_MARGIN, TEXT_BOX_Y_MARGIN } from "./constants";
+import { Edge } from "./editor/edge";
+import { Vector } from "./vector";
 
 export type TupleOf<T, N extends number> = N extends N
 	? number extends N

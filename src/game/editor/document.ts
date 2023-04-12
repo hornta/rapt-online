@@ -2,25 +2,25 @@
 // class Document
 ////////////////////////////////////////////////////////////////////////////////
 
-import { UndoStack } from "./undoStack.js";
-import { Button } from "./placeables/button.js";
-import { World } from "./world.js";
-import { Link } from "./placeables/link.js";
-import { SetCellCommand } from "./commands/setCellCommand.js";
-import { SetSelectionCommand } from "./commands/setSelectionCommand.js";
-import { BasePlaceable } from "./placeables/placeable.js";
-import { AddPlaceableCommand } from "./commands/addPlaceableCommand.js";
-import { MacroCommand } from "./commands/macroCommand.js";
-import { MoveSelectionCommand } from "./commands/moveSelectionCommand.js";
-import { RemovePlaceableCommand } from "./commands/removePlaceableCommand.js";
-import { RotateSelectionCommand } from "./commands/rotateSelectionCommand.js";
-import { SetPlayerGoalCommand } from "./commands/setPlayerGoalCommand.js";
-import { SetPlayerStartCommand } from "./commands/setPlayerStartCommand.js";
-import { SetSignTextCommand } from "./commands/setSignTextCommand.js";
-import { ToggleInitiallyOpenCommand } from "./commands/toggleInitiallyOpenCommand.js";
-import { Door } from "./placeables/door.js";
-import { Vector } from "../vector.js";
-import { Sprite } from "./placeables/sprite.js";
+import { UndoStack } from "./undoStack";
+import { Button } from "./placeables/button";
+import { World } from "./world";
+import { Link } from "./placeables/link";
+import { SetCellCommand } from "./commands/setCellCommand";
+import { SetSelectionCommand } from "./commands/setSelectionCommand";
+import { BasePlaceable } from "./placeables/placeable";
+import { AddPlaceableCommand } from "./commands/addPlaceableCommand";
+import { MacroCommand } from "./commands/macroCommand";
+import { MoveSelectionCommand } from "./commands/moveSelectionCommand";
+import { RemovePlaceableCommand } from "./commands/removePlaceableCommand";
+import { RotateSelectionCommand } from "./commands/rotateSelectionCommand";
+import { SetPlayerGoalCommand } from "./commands/setPlayerGoalCommand";
+import { SetPlayerStartCommand } from "./commands/setPlayerStartCommand";
+import { SetSignTextCommand } from "./commands/setSignTextCommand";
+import { ToggleInitiallyOpenCommand } from "./commands/toggleInitiallyOpenCommand";
+import { Door } from "./placeables/door";
+import { Vector } from "../vector";
+import { Sprite } from "./placeables/sprite";
 
 export class Document {
 	undoStack: UndoStack;

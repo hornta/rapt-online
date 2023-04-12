@@ -1,7 +1,7 @@
-import { invariant } from "./invariant.js";
-import { levelDataSchema } from "./schemas.js";
-import { LEVEL_DATA } from "./game/levels.js";
-import { Game } from "./game.js";
+import { invariant } from "./invariant";
+import { levelDataSchema } from "./schemas";
+import { LEVEL_DATA } from "./game/levels";
+import { Game } from "./game";
 
 export const Level = () => {
 	// const { levelName } = useParams();
@@ -14,4 +14,5 @@ export const Level = () => {
 	// );
 	// const level = levelDataSchema.parse(levelJson);
 	// return <Game level={level} />;
+	return <>123</>;
 };

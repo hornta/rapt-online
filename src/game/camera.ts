@@ -1,7 +1,7 @@
-import { BackgroundCache } from "./backgroundCache.js";
-import { Player } from "./player.js";
-import { Vector } from "./vector.js";
-import { render } from "./render.js";
+import { BackgroundCache } from "./backgroundCache";
+import { Player } from "./player";
+import { Vector } from "./vector";
+import { render } from "./render";
 
 // Clip a rectangular w by h polygon by a line passing though split and the origin:
 //

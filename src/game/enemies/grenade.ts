@@ -1,8 +1,8 @@
-import { ENEMY_GRENADE } from "../constants.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Vector } from "../vector.js";
-import { FreefallEnemy } from "./freefallEnemy.js";
+import { ENEMY_GRENADE } from "../constants";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Vector } from "../vector";
+import { FreefallEnemy } from "./freefallEnemy";
 
 const GRENADE_LIFETIME = 5;
 const GRENADE_RADIUS = 0.2;

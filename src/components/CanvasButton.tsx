@@ -1,11 +1,11 @@
 import { useRef, useLayoutEffect } from "react";
-import { GAME_SCALE } from "../game/constants.js";
+import { GAME_SCALE } from "../game/constants";
 import {
 	spriteTemplates,
 	SPRITE_ROCKET_SPIDER,
 	Sprite,
-} from "../game/editor/placeables/sprite.js";
-import { Vector } from "../game/vector.js";
+} from "../game/editor/placeables/sprite";
+import { Vector } from "../game/vector";
 
 const cellClass =
 	"w-1/2 text-xs text-center h-[80px] border-b border-b first:border-r aria-pressed:bg-gray-200 hover:bg-gray-100 aria-pressed:shadow-inner transition-colors transition-shadow";

@@ -1,7 +1,7 @@
-import { Vector } from "../../vector.js";
-import { Document } from "../document.js";
-import { drawSpawnPoint } from "../sprites.js";
-import { Tool } from "./tool.js";
+import { Vector } from "../../vector";
+import { Document } from "../document";
+import { drawSpawnPoint } from "../sprites";
+import { Tool } from "./tool";
 
 export class SetPlayerStartTool extends Tool {
 	doc: Document;

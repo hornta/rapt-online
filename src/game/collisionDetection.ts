@@ -27,18 +27,18 @@
 //
 // - gameState is a global, so all functions that take gameState as an argument in C++ don't now
 
-import { AABB, isAABB } from "./aabb.js";
-import { Circle, isCircle } from "./circle.js";
-import { EDGE_ENEMIES, CELL_EMPTY } from "./constants.js";
-import { Contact } from "./contact.js";
-import { EdgeQuad } from "./edgeQuad.js";
-import { Entity } from "./entity.js";
-import { gameState } from "./game.js";
-import { Polygon, isPolygon } from "./polygon.js";
-import { Segment } from "./segment.js";
-import { Shape } from "./shape.js";
-import { Vector } from "./vector.js";
-import { World } from "./world.js";
+import { AABB, isAABB } from "./aabb";
+import { Circle, isCircle } from "./circle";
+import { EDGE_ENEMIES, CELL_EMPTY } from "./constants";
+import { Contact } from "./contact";
+import { EdgeQuad } from "./edgeQuad";
+import { Entity } from "./entity";
+import { gameState } from "./game";
+import { Polygon, isPolygon } from "./polygon";
+import { Segment } from "./segment";
+import { Shape } from "./shape";
+import { Vector } from "./vector";
+import { World } from "./world";
 
 const MAX_VELOCITY = 30;
 const MAX_COLLISIONS = 20;

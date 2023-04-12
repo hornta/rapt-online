@@ -1,7 +1,7 @@
-import { BackgroundCache } from "./backgroundCache.js";
-import { gameState } from "./game.js";
-import { Particle } from "./particle.js";
-import { Vector } from "./vector.js";
+import { BackgroundCache } from "./backgroundCache";
+import { gameState } from "./game";
+import { Particle } from "./particle";
+import { Vector } from "./vector";
 
 export const render = (
 	c: CanvasRenderingContext2D,

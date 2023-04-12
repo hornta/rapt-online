@@ -1,6 +1,6 @@
-import { Circle } from "../circle.js";
-import { Enemy } from "../enemy.js";
-import { Vector } from "../vector.js";
+import { Circle } from "../circle";
+import { Enemy } from "../enemy";
+import { Vector } from "../vector";
 
 /**
  * Abstract class representing enemies that may rotating, including seeking enemies.

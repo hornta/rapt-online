@@ -1,5 +1,5 @@
-import { Door } from "../placeables/door.js";
-import { Command } from "./command.js";
+import { Door } from "../placeables/door";
+import { Command } from "./command";
 
 export class ToggleInitiallyOpenCommand extends Command {
 	door: Door;

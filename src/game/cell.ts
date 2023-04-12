@@ -4,10 +4,10 @@ import {
 	CELL_CEIL_DIAG_RIGHT,
 	CELL_FLOOR_DIAG_LEFT,
 	CELL_FLOOR_DIAG_RIGHT,
-} from "./constants.js";
-import { Edge } from "./edge.js";
-import { Polygon } from "./polygon.js";
-import { Vector } from "./vector.js";
+} from "./constants";
+import { Edge } from "./edge";
+import { Polygon } from "./polygon";
+import { Vector } from "./vector";
 
 export class Cell {
 	x: number;

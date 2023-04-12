@@ -1,9 +1,9 @@
-import { COLOR_RED, COLOR_BLUE } from "../../constants.js";
-import { rgba } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Edge } from "../edge.js";
-import { Rectangle } from "../shapes.js";
-import { BasePlaceable } from "./placeable.js";
+import { COLOR_RED, COLOR_BLUE } from "../../constants";
+import { rgba } from "../../utils";
+import { Vector } from "../../vector";
+import { Edge } from "../edge";
+import { Rectangle } from "../shapes";
+import { BasePlaceable } from "./placeable";
 
 export class Door extends BasePlaceable {
 	isOneWay: boolean;

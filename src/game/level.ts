@@ -1,8 +1,8 @@
-import { LevelData } from "../schemas.js";
-import { GAME_LOST, GAME_WON } from "./constants.js";
-import { Game, gameState } from "./game.js";
-import { getKeyPressed } from "./input.js";
-import { Particle } from "./particle.js";
+import { LevelData } from "../schemas";
+import { GAME_LOST, GAME_WON } from "./constants";
+import { Game, gameState } from "./game";
+import { getKeyPressed } from "./input";
+import { Particle } from "./particle";
 
 export class Level {
 	username: string | null;

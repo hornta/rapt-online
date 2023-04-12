@@ -1,5 +1,5 @@
-import { Vector } from "../../vector.js";
-import { Tool } from "./tool.js";
+import { Vector } from "../../vector";
+import { Tool } from "./tool";
 
 export class CameraPanTool extends Tool {
 	worldCenter: Vector;

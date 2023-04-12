@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { ComponentProps, useContext } from "react";
-import { ButtonGroupContext } from "./ButtonGroup.jsx";
+import { ButtonGroupContext } from "./ButtonGroup";
 
 const buttonClass =
 	"inline-flex justify-center items-center appearance-none bg-gradient-to-t from-gray-200 to-white px-2 border border-gray-500 text-black rounded-lg aria-pressed:text-white aria-pressed:from-gray-800 aria-pressed:to-gray-600 aria-pressed:border-gray-900";

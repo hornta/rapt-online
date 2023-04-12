@@ -1,10 +1,10 @@
-import { ENEMY_MAGNET } from "../constants.js";
-import { gameState } from "../game.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { adjustAngleToTarget } from "../utils.js";
-import { Vector } from "../vector.js";
-import { RotatingEnemy } from "./rotatingEnemy.js";
+import { ENEMY_MAGNET } from "../constants";
+import { gameState } from "../game";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { adjustAngleToTarget } from "../utils";
+import { Vector } from "../vector";
+import { RotatingEnemy } from "./rotatingEnemy";
 
 const DOOM_MAGNET_RADIUS = 0.3;
 const DOOM_MAGNET_ELASTICITY = 0.5;

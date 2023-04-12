@@ -1,6 +1,6 @@
-import { LevelData } from "../schemas.js";
-import { updateInput } from "./input.js";
-import { Level } from "./level.js";
+import { LevelData } from "../schemas";
+import { updateInput } from "./input";
+import { Level } from "./level";
 
 export const startGame = (
 	canvas: HTMLCanvasElement,

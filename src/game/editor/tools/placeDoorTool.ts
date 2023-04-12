@@ -1,9 +1,9 @@
-import { getClosestEdge } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Document } from "../document.js";
-import { Edge } from "../edge.js";
-import { Door } from "../placeables/door.js";
-import { Tool } from "./tool.js";
+import { getClosestEdge } from "../../utils";
+import { Vector } from "../../vector";
+import { Document } from "../document";
+import { Edge } from "../edge";
+import { Door } from "../placeables/door";
+import { Tool } from "./tool";
 
 export class PlaceDoorTool extends Tool {
 	doc: Document;

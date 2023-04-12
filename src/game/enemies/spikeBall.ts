@@ -1,9 +1,9 @@
-import { Circle } from "../circle.js";
-import { ENEMY_SPIKE_BALL } from "../constants.js";
-import { Enemy } from "../enemy.js";
-import { randInRange } from "../math.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
+import { Circle } from "../circle";
+import { ENEMY_SPIKE_BALL } from "../constants";
+import { Enemy } from "../enemy";
+import { randInRange } from "../math";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
 
 const SPIKE_BALL_RADIUS = 0.2;
 

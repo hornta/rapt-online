@@ -1,7 +1,7 @@
-import { Vector } from "../../vector.js";
-import { Document } from "../document.js";
-import { drawGoal } from "../sprites.js";
-import { Tool } from "./tool.js";
+import { Vector } from "../../vector";
+import { Document } from "../document";
+import { drawGoal } from "../sprites";
+import { Tool } from "./tool";
 
 export class SetPlayerGoalTool extends Tool {
 	doc: Document;

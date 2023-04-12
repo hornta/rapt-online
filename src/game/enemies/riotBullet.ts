@@ -1,10 +1,10 @@
-import { ENEMY_RIOT_BULLET } from "../constants.js";
-import { Enemy } from "../enemy.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Player } from "../player.js";
-import { Vector } from "../vector.js";
-import { FreefallEnemy } from "./freefallEnemy.js";
+import { ENEMY_RIOT_BULLET } from "../constants";
+import { Enemy } from "../enemy";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Player } from "../player";
+import { Vector } from "../vector";
+import { FreefallEnemy } from "./freefallEnemy";
 
 const RIOT_BULLET_RADIUS = 0.1;
 const RIOT_BULLET_SPEED = 7;

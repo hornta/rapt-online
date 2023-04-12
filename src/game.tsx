@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
-import { LevelData } from "./schemas.js";
-import { startGame } from "./game/rapt.js";
+import { LevelData } from "./schemas";
+import { startGame } from "./game/rapt";
 
 export const initGame = (
 	canvas: HTMLCanvasElement,

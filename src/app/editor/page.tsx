@@ -1,9 +1,8 @@
-import { Editor } from "@/Editor.jsx";
+import { Editor } from "./Editor";
 
 export default function Page() {
 	return (
 		<div>
-			123
 			<Editor />
 		</div>
 	);

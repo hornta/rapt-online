@@ -1,7 +1,7 @@
-import { TEXT_BOX_X_MARGIN, TEXT_BOX_Y_MARGIN } from "../../constants.js";
-import { splitUpText } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Polygon, Rectangle, Circle } from "../shapes.js";
+import { TEXT_BOX_X_MARGIN, TEXT_BOX_Y_MARGIN } from "../../constants";
+import { splitUpText } from "../../utils";
+import { Vector } from "../../vector";
+import { Polygon, Rectangle, Circle } from "../shapes";
 import {
 	drawBomber,
 	drawBouncyRocketLauncher,
@@ -22,8 +22,8 @@ import {
 	drawWallAvoider,
 	drawWallCrawler,
 	drawWheeligator,
-} from "../sprites.js";
-import { BasePlaceable } from "./placeable.js";
+} from "../sprites";
+import { BasePlaceable } from "./placeable";
 
 export const SPRITE_BOMBER = 0;
 export const SPRITE_DOOM_MAGNET = 1;

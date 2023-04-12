@@ -1,7 +1,7 @@
-import { AABB } from "../aabb.js";
-import { Enemy } from "../enemy.js";
-import { Player } from "../player.js";
-import { Vector } from "../vector.js";
+import { AABB } from "../aabb";
+import { Enemy } from "../enemy";
+import { Player } from "../player";
+import { Vector } from "../vector";
 
 export abstract class SpawningEnemy extends Enemy {
 	spawnFrequency: number;

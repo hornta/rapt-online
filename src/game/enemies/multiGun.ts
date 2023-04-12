@@ -1,9 +1,9 @@
-import { lineOfSightWorld } from "../collisionDetection.js";
-import { ENEMY_MULTI_GUN } from "../constants.js";
-import { gameState } from "../game.js";
-import { Vector } from "../vector.js";
-import { Laser } from "./laser.js";
-import { SpawningEnemy } from "./spawningEntity.js";
+import { lineOfSightWorld } from "../collisionDetection";
+import { ENEMY_MULTI_GUN } from "../constants";
+import { gameState } from "../game";
+import { Vector } from "../vector";
+import { Laser } from "./laser";
+import { SpawningEnemy } from "./spawningEntity";
 
 const MULTI_GUN_WIDTH = 0.5;
 const MULTI_GUN_HEIGHT = 0.5;

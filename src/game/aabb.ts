@@ -1,7 +1,7 @@
-import { SHAPE_AABB } from "./constants.js";
-import { Polygon } from "./polygon.js";
-import { Shape } from "./shape.js";
-import { Vector } from "./vector.js";
+import { SHAPE_AABB } from "./constants";
+import { Polygon } from "./polygon";
+import { Shape } from "./shape";
+import { Vector } from "./vector";
 
 export class AABB implements Shape {
 	lowerLeft: Vector;

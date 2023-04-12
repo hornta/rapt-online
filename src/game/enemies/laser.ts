@@ -1,9 +1,9 @@
-import { ENEMY_LASER } from "../constants.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Segment } from "../segment.js";
-import { Vector } from "../vector.js";
-import { FreefallEnemy } from "./freefallEnemy.js";
+import { ENEMY_LASER } from "../constants";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Segment } from "../segment";
+import { Vector } from "../vector";
+import { FreefallEnemy } from "./freefallEnemy";
 
 const LASER_RADIUS = 0.15;
 const LASER_SPEED = 5;

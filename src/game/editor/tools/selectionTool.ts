@@ -1,10 +1,10 @@
-import { rgba } from "../../utils.js";
-import { Vector } from "../../vector.js";
-import { Document } from "../document.js";
-import { BasePlaceable } from "../placeables/placeable.js";
-import { Sprite } from "../placeables/sprite.js";
-import { Rectangle } from "../shapes.js";
-import { Tool } from "./tool.js";
+import { rgba } from "../../utils";
+import { Vector } from "../../vector";
+import { Document } from "../document";
+import { BasePlaceable } from "../placeables/placeable";
+import { Sprite } from "../placeables/sprite";
+import { Rectangle } from "../shapes";
+import { Tool } from "./tool";
 
 const SELECTION_MODE_NONE = 0;
 const SELECTION_MODE_SELECT = 1;

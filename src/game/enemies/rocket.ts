@@ -1,11 +1,11 @@
-import { gameState } from "../game.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { adjustAngleToTarget } from "../utils.js";
-import { Vector } from "../vector.js";
-import { RotatingEnemy } from "./rotatingEnemy.js";
+import { gameState } from "../game";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { adjustAngleToTarget } from "../utils";
+import { Vector } from "../vector";
+import { RotatingEnemy } from "./rotatingEnemy";
 
 export const ROCKET_SPRITE_RED = 0;
 export const ROCKET_SPRITE_BLUE = 1;

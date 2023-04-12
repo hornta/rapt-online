@@ -1,9 +1,9 @@
-import { LevelData } from "../../schemas.js";
-import { CELL_SOLID, COLOR_NEUTRAL } from "../constants.js";
-import { rgba } from "../utils.js";
-import { Vector } from "../vector.js";
-import { Button } from "./placeables/button.js";
-import { BasePlaceable, PlaceableType } from "./placeables/placeable.js";
+import { LevelData } from "../../schemas";
+import { CELL_SOLID, COLOR_NEUTRAL } from "../constants";
+import { rgba } from "../utils";
+import { Vector } from "../vector";
+import { Button } from "./placeables/button";
+import { BasePlaceable, PlaceableType } from "./placeables/placeable";
 import {
 	SPRITE_BOMBER,
 	SPRITE_BOUNCY_ROCKET_LAUNCHER,
@@ -26,13 +26,13 @@ import {
 	SPRITE_WHEELIGATOR,
 	Sprite,
 	spriteTemplates,
-} from "./placeables/sprite.js";
-import { SECTOR_SIZE, Sector } from "./sector.js";
-import { Rectangle } from "./shapes.js";
-import { drawGoal, drawSpawnPoint } from "./sprites.js";
-import { Door } from "./placeables/door.js";
-import { Link } from "./placeables/link.js";
-import { Edge } from "./edge.js";
+} from "./placeables/sprite";
+import { SECTOR_SIZE, Sector } from "./sector";
+import { Rectangle } from "./shapes";
+import { drawGoal, drawSpawnPoint } from "./sprites";
+import { Door } from "./placeables/door";
+import { Link } from "./placeables/link";
+import { Edge } from "./edge";
 
 const enemyToSpriteMap = {
 	bomber: SPRITE_BOMBER,

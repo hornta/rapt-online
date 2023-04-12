@@ -1,10 +1,10 @@
-import { AABB } from "./aabb.js";
-import { ENEMY_DOORBELL, PLAYER_HEIGHT } from "./constants.js";
-import { Enemy } from "./enemy.js";
-import { gameState } from "./game.js";
-import { randInRange } from "./math.js";
-import { Particle } from "./particle.js";
-import { Vector } from "./vector.js";
+import { AABB } from "./aabb";
+import { ENEMY_DOORBELL, PLAYER_HEIGHT } from "./constants";
+import { Enemy } from "./enemy";
+import { gameState } from "./game";
+import { randInRange } from "./math";
+import { Particle } from "./particle";
+import { Vector } from "./vector";
 
 // Must be wider and taller than the player to avoid double toggling
 const DOORBELL_WIDTH = 0.4;

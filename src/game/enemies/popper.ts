@@ -1,13 +1,13 @@
-import { closestToEntityWorld } from "../collisionDetection.js";
-import { ENEMY_POPPER } from "../constants.js";
-import { Contact } from "../contact.js";
-import { gameState } from "../game.js";
-import { Keyframe } from "../keyframe.js";
-import { randInRange } from "../math.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { WalkingEnemy } from "./walkingEnemy.js";
+import { closestToEntityWorld } from "../collisionDetection";
+import { ENEMY_POPPER } from "../constants";
+import { Contact } from "../contact";
+import { gameState } from "../game";
+import { Keyframe } from "../keyframe";
+import { randInRange } from "../math";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { WalkingEnemy } from "./walkingEnemy";
 
 const LEG_LENGTH = 0.3;
 

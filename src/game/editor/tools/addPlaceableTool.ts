@@ -1,9 +1,9 @@
-import { Vector } from "../../vector.js";
-import { Document } from "../document.js";
-import { Editor } from "../editor.js";
-import { Button } from "../placeables/button.js";
-import { SPRITE_SIGN, Sprite } from "../placeables/sprite.js";
-import { Tool } from "./tool.js";
+import { Vector } from "../../vector";
+import { Document } from "../document";
+import { Editor } from "../editor";
+import { Button } from "../placeables/button";
+import { SPRITE_SIGN, Sprite } from "../placeables/sprite";
+import { Tool } from "./tool";
 
 export class AddPlaceableTool extends Tool {
 	doc: Document;

@@ -1,5 +1,5 @@
-import { lerp } from "./math.js";
-import { Vector } from "./vector.js";
+import { lerp } from "./math";
+import { Vector } from "./vector";
 
 export class Keyframe {
 	center: Vector;

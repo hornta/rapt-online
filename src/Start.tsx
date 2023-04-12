@@ -1,5 +1,5 @@
-import Link from "next/link.js";
-import { LEVEL_DATA } from "./game/levels.js";
+import Link from "next/link";
+import { LEVEL_DATA } from "./game/levels";
 
 export const Start = () => {
 	return (

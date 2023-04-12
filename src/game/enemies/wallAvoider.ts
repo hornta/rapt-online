@@ -1,12 +1,12 @@
-import { closestToEntityWorld } from "../collisionDetection.js";
-import { ENEMY_WALL_AVOIDER, STAT_ENEMY_DEATHS } from "../constants.js";
-import { gameState } from "../game.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { RotatingEnemy } from "./rotatingEnemy.js";
+import { closestToEntityWorld } from "../collisionDetection";
+import { ENEMY_WALL_AVOIDER, STAT_ENEMY_DEATHS } from "../constants";
+import { gameState } from "../game";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { RotatingEnemy } from "./rotatingEnemy";
 
 const WALL_AVOIDER_RADIUS = 0.3;
 const WALL_AVOIDER_ACCEL = 3.3;

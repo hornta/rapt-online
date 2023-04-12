@@ -1,7 +1,7 @@
 import { type CSSProperties, type ReactElement } from "react";
-import { getTransitionStyles } from "./transitions/getTransitionStyles.js";
-import { TransitionMethod } from "./transitions/transitions.js";
-import { useTransition } from "./transitions/useTransition.js";
+import { getTransitionStyles } from "./transitions/getTransitionStyles";
+import { TransitionMethod } from "./transitions/transitions";
+import { useTransition } from "./transitions/useTransition";
 
 interface GroupedTransitionItem {
 	duration: number;

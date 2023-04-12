@@ -1,12 +1,12 @@
-import { lineOfSightWorld } from "../collisionDetection.js";
-import { ENEMY_STALACBAT, STAT_ENEMY_DEATHS } from "../constants.js";
-import { gameState } from "../game.js";
-import { randInRange } from "../math.js";
-import { Particle } from "../particle.js";
-import { Player } from "../player.js";
-import { Sprite } from "../sprite.js";
-import { Vector } from "../vector.js";
-import { FreefallEnemy } from "./freefallEnemy.js";
+import { lineOfSightWorld } from "../collisionDetection";
+import { ENEMY_STALACBAT, STAT_ENEMY_DEATHS } from "../constants";
+import { gameState } from "../game";
+import { randInRange } from "../math";
+import { Particle } from "../particle";
+import { Player } from "../player";
+import { Sprite } from "../sprite";
+import { Vector } from "../vector";
+import { FreefallEnemy } from "./freefallEnemy";
 
 const STALACBAT_RADIUS = 0.2;
 const STALACBAT_SPEED = 2;

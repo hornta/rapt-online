@@ -1,5 +1,5 @@
-import { Vector } from "../vector.js";
-import { Edge } from "./edge.js";
+import { Vector } from "../vector";
+import { Edge } from "./edge";
 
 export class Rectangle {
 	min: Vector;

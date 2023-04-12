@@ -1,10 +1,10 @@
-import { Button } from "../placeables/button.js";
-import { Tool } from "./tool.js";
-import { Document } from "../document.js";
-import { Vector } from "../../vector.js";
-import { Door } from "../placeables/door.js";
-import { Link } from "../placeables/link.js";
-import { dashedLine, rgba } from "../../utils.js";
+import { Button } from "../placeables/button";
+import { Tool } from "./tool";
+import { Document } from "../document";
+import { Vector } from "../../vector";
+import { Door } from "../placeables/door";
+import { Link } from "../placeables/link";
+import { dashedLine, rgba } from "../../utils";
 
 export class LinkButtonToDoorTool extends Tool {
 	doc: Document;

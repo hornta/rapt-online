@@ -1,6 +1,6 @@
-import { gameState } from "./game.js";
-import { GameState } from "./gameState.js";
-import { Player } from "./player.js";
+import { gameState } from "./game";
+import { GameState } from "./gameState";
+import { Player } from "./player";
 
 export const actionMappings = {
 	killKey: "k", // k key

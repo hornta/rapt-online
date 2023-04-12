@@ -1,4 +1,4 @@
-import { Edge } from "./edge.js";
+import { Edge } from "./edge";
 
 export class EdgeQuad {
 	edges: [Edge | null, Edge | null, Edge | null, Edge | null];

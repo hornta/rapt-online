@@ -1,8 +1,8 @@
-import { AABB } from "./aabb.js";
-import { SHAPE_POLYGON } from "./constants.js";
-import { Segment } from "./segment.js";
-import { Shape } from "./shape.js";
-import { Vector } from "./vector.js";
+import { AABB } from "./aabb";
+import { SHAPE_POLYGON } from "./constants";
+import { Segment } from "./segment";
+import { Shape } from "./shape";
+import { Vector } from "./vector";
 
 export class Polygon implements Shape {
 	center: Vector;
