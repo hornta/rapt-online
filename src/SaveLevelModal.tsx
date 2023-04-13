@@ -10,7 +10,7 @@ import {
 } from "./components/Modal";
 import { Textarea } from "./components/Textarea";
 import { CheckboxField } from "./components/checkbox/CheckboxField";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { usePublishLevelMutation } from "./api";
 import { Hint } from "./components/Hint";
 
@@ -47,7 +47,7 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 				<form
 					id={formId}
 					onSubmit={form.handleSubmit(async (data) => {
-						const result = await publishLevel({
+						await publishLevel({
 							description: data.description,
 							name: data.name,
 							one_player: data.one_player,
@@ -77,7 +77,7 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 					<div>
 						<CheckboxField
 							{...form.register("one_player", {
-								onChange(event) {
+								onChange() {
 									form.trigger("two_players");
 								},
 							})}
