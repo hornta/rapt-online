@@ -10,7 +10,9 @@ import {
 } from "./components/Modal";
 import { Textarea } from "./components/Textarea";
 import { CheckboxField } from "./components/checkbox/CheckboxField";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import { usePublishLevelMutation } from "./api";
+import { Hint } from "./components/Hint";
 
 interface Inputs {
 	name: string;
@@ -36,7 +38,7 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 		},
 	});
 
-	// const [publishLevel] = usePublishLevelMutation();
+	const [publishLevel] = usePublishLevelMutation();
 
 	return (
 		<Modal open={open} onClose={onClose}>
@@ -45,21 +47,61 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 				<form
 					id={formId}
 					onSubmit={form.handleSubmit(async (data) => {
-						// const result = await publishLevel({
-						// 	description: data.description,
-						// 	name: data.name,
-						// 	one_player: data.one_player,
-						// 	two_players: data.two_players,
-						// });
+						const result = await publishLevel({
+							description: data.description,
+							name: data.name,
+							one_player: data.one_player,
+							two_players: data.two_players,
+						});
 					})}
 				>
-					<Label>Name</Label>
-					<Input containerProps={{ className: "mb-4" }} />
-					<Label>Description</Label>
-					<Textarea className="mb-4" />
+					<Label htmlFor="name">Name</Label>
+					<Input
+						id="name"
+						{...form.register("name", { required: "This is a required field" })}
+						containerProps={{ className: "mb-4" }}
+						aria-invalid={form.formState.errors.name !== undefined}
+						hint={form.formState.errors.name?.message}
+					/>
+					<Label htmlFor="description">Description</Label>
+					<Textarea
+						id="description"
+						{...form.register("description", {
+							required: "This is a required field",
+						})}
+						containerProps={{ className: "mb-4" }}
+						aria-invalid={form.formState.errors.description !== undefined}
+						hint={form.formState.errors.description?.message}
+					/>
 
-					<CheckboxField label="1 player"></CheckboxField>
-					<CheckboxField label="2 players"></CheckboxField>
+					<div>
+						<CheckboxField
+							{...form.register("one_player", {
+								onChange(event) {
+									form.trigger("two_players");
+								},
+							})}
+							label="1 player"
+						></CheckboxField>
+					</div>
+					<div>
+						<CheckboxField
+							{...form.register("two_players", {
+								validate: (value, formValues) => {
+									if (
+										formValues.one_player === false &&
+										formValues.two_players === false
+									) {
+										return "Select at least one option";
+									}
+								},
+							})}
+							label="2 players"
+						></CheckboxField>
+						{form.formState.errors.two_players !== undefined && (
+							<Hint error>{form.formState.errors.two_players.message}</Hint>
+						)}
+					</div>
 				</form>
 			</ModalContent>
 			<ModalActions>

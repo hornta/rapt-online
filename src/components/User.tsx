@@ -1,12 +1,12 @@
-// import { useClerk, useUser } from "@clerk/nextjs";
+import { useClerk, useUser } from "@clerk/nextjs";
 
 export const User = () => {
-	// const user = useUser();
-	// const clerk = useClerk();
+	const user = useUser();
+	const clerk = useClerk();
 
 	return (
 		<div className="text-right pt-2">
-			{/* {user.isSignedIn ? (
+			{user.isSignedIn ? (
 				<span>
 					{user.user.username},{" "}
 					<button
@@ -29,7 +29,7 @@ export const User = () => {
 						Login
 					</button>
 				</>
-			)} */}
+			)}
 		</div>
 	);
 };

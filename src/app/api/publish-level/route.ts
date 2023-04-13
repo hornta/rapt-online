@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
 	const cookieStore = cookies();
 	const { searchParams } = new URL(request.url);
 

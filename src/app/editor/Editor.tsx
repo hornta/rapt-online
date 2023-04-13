@@ -34,7 +34,7 @@ import {
 import { Editor as EditorClass } from "@/game/editor/editor";
 import { Vector } from "@/game/vector";
 import { User } from "@/components/User";
-// import { useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 
 function mousePoint(
 	canvas: HTMLCanvasElement,
@@ -117,7 +117,7 @@ export const Editor = () => {
 		event.preventDefault();
 	};
 
-	// const user = useUser();
+	const user = useUser();
 
 	useEffect(() => {
 		const onKeyDown = (e: KeyboardEvent) => {
@@ -147,9 +147,9 @@ export const Editor = () => {
 					e.preventDefault();
 				} else if (e.code === "KeyS") {
 					e.preventDefault();
-					// if (!user.isSignedIn) {
-					// 	alert("You must be signed in to save the level");
-					// }
+					if (!user.isSignedIn) {
+						alert("You must be signed in to save the level");
+					}
 					// ajaxPutLevel(editor.save(), () => {
 					// 	editor.doc.undoStack.setCleanIndex(cleanIndex);
 					// });
@@ -171,7 +171,7 @@ export const Editor = () => {
 			document.removeEventListener("keydown", onKeyDown);
 			document.removeEventListener("keyup", onKeyUp);
 		};
-	}, [isTesting /* , user.isSignedIn */]);
+	}, [isTesting, user.isSignedIn]);
 
 	useEffect(() => {
 		if (editorInstance.current) {

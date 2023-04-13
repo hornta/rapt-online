@@ -1,6 +1,6 @@
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs/app-beta";
 import "./globals.css";
-// import Providers from "@/providers";
+import Providers from "@/providers";
 
 export const metadata = {
 	title: "Robots Are People Too",
@@ -16,8 +16,7 @@ export default function RootLayout({
 		<html lang="en">
 			<ClerkProvider>
 				<body>
-					{children}
-					{/* <Providers>{children}</Providers> */}
+					<Providers>{children}</Providers>
 				</body>
 			</ClerkProvider>
 		</html>
