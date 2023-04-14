@@ -1,4 +1,3 @@
-import { Button } from "@/components/Button";
 import { prisma } from "@/prisma";
 import Link from "next/link";
 

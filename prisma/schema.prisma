@@ -17,8 +17,8 @@ model Level {
   data        Json     @db.Json
   one_player  Boolean
   two_players Boolean
-  createdById Int
-  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById Int?
+  createdBy   User?    @relation(fields: [createdById], references: [id], onDelete: Cascade)
 
   @@index([createdById])
 }
