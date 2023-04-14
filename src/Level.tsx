@@ -1,6 +1,5 @@
 import { invariant } from "./invariant";
 import { levelDataSchema } from "./schemas";
-import { LEVEL_DATA } from "./game/levels";
 import { Game } from "./game";
 
 export const Level = () => {

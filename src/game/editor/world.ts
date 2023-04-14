@@ -1,5 +1,5 @@
 import { LevelData } from "../../schemas";
-import { CELL_SOLID, COLOR_NEUTRAL } from "../constants";
+import { CELL_EMPTY, CELL_SOLID, COLOR_NEUTRAL } from "../constants";
 import { rgba } from "../utils";
 import { Vector } from "../vector";
 import { Button } from "./placeables/button";
@@ -106,6 +106,10 @@ export class World {
 	playerGoal: Vector;
 
 	constructor() {
+		this.reset();
+	}
+
+	reset() {
 		this.offset = new Vector(0, 0); // This is in sectors, not cells
 		this.size = new Vector(0, 0); // This is in sectors, not cells
 		this.sectors = [];
@@ -367,12 +371,10 @@ export class World {
 			}
 		}
 
-		// save per-level stuff
-		const uniqueId = Math.round(Math.random() * 0xffffffff);
 		const start = Vector.toTuple(this.playerStart.sub(min));
 		const end = Vector.toTuple(this.playerGoal.sub(min));
 
-		return { cells, width, height, start, end, entities, unique_id: uniqueId };
+		return { cells, width, height, start, end, entities };
 	}
 
 	fromJSON(json: LevelData) {
@@ -456,5 +458,17 @@ export class World {
 				this.placeables.push(new Link(walls[bWalls[j]], button));
 			}
 		}
+	}
+
+	setDefault() {
+		this.reset();
+		this.playerStart = new Vector(-2, -1);
+		this.playerGoal = new Vector(1, -1);
+		this.setCell(-2, -1, CELL_EMPTY);
+		this.setCell(-2, 0, CELL_EMPTY);
+		this.setCell(-1, 0, CELL_EMPTY);
+		this.setCell(0, 0, CELL_EMPTY);
+		this.setCell(1, 0, CELL_EMPTY);
+		this.setCell(1, -1, CELL_EMPTY);
 	}
 }

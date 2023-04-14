@@ -1,10 +1,5 @@
 import { LevelData } from "../../schemas";
-import {
-	CELL_EMPTY,
-	MOUSE_LEFT,
-	MOUSE_MIDDLE,
-	MOUSE_RIGHT,
-} from "../constants";
+import { MOUSE_LEFT, MOUSE_MIDDLE, MOUSE_RIGHT } from "../constants";
 import { rgba } from "../utils";
 import { Vector } from "../vector";
 import { Document } from "./document";
@@ -70,15 +65,7 @@ export class Editor {
 		this.selectedTool = null;
 		this.activeTool = null;
 
-		// simple default level
-		this.doc.world.playerStart = new Vector(-2, -1);
-		this.doc.world.playerGoal = new Vector(1, -1);
-		this.doc.world.setCell(-2, -1, CELL_EMPTY);
-		this.doc.world.setCell(-2, 0, CELL_EMPTY);
-		this.doc.world.setCell(-1, 0, CELL_EMPTY);
-		this.doc.world.setCell(0, 0, CELL_EMPTY);
-		this.doc.world.setCell(1, 0, CELL_EMPTY);
-		this.doc.world.setCell(1, -1, CELL_EMPTY);
+		this.doc.world.setDefault();
 	}
 
 	setMode(mode: string) {
@@ -361,6 +348,11 @@ export class Editor {
 	setSelectedWall(index: number) {
 		this.selectedWall = index;
 		this.setSidePanelTool();
+	}
+
+	clear() {
+		this.doc.clear();
+		this.draw();
 	}
 
 	toJSON() {

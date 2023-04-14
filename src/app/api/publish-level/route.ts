@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
 	return new Response(
 		JSON.stringify({
-			body: request.body,
+			body: await request.json(),
 			cookies: cookieStore.getAll(),
 			query: searchParams,
 		})

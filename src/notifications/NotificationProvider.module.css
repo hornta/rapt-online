@@ -1,0 +1,10 @@
+.notifications {
+  width: calc(100% - 16 * 2px);
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 2000;
+}
+
+.notification:not(:first-of-type) {
+  margin-top: 16px;
+}

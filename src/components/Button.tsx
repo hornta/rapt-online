@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import { ComponentProps, useContext } from "react";
 import { ButtonGroupContext } from "./ButtonGroup";

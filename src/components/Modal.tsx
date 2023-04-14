@@ -169,6 +169,7 @@ export const ConfirmModal = ({
 					onClick={onConfirm}
 					isLoading={isLoading}
 					disabled={isLoading}
+					variant="primary"
 				>
 					{confirmButtonLabel}
 				</Button>

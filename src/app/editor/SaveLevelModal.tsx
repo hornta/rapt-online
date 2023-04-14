@@ -1,18 +1,18 @@
 import { useId } from "react";
-import { Button } from "./components/Button";
-import { Input } from "./components/Input";
-import { Label } from "./components/Label";
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
+import { Label } from "../../components/Label";
 import {
 	Modal,
 	ModalTitle,
 	ModalContent,
 	ModalActions,
-} from "./components/Modal";
-import { Textarea } from "./components/Textarea";
-import { CheckboxField } from "./components/checkbox/CheckboxField";
+} from "../../components/Modal";
+import { Textarea } from "../../components/Textarea";
+import { CheckboxField } from "../../components/checkbox/CheckboxField";
 import { useForm } from "react-hook-form";
-import { usePublishLevelMutation } from "./api";
-import { Hint } from "./components/Hint";
+import { usePublishLevelMutation } from "../../api";
+import { Hint } from "../../components/Hint";
 
 interface Inputs {
 	name: string;

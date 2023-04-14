@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useDidUpdate } from "../../hooks/useDidUpdate";
+import { useDidUpdate } from "../../utils/useDidUpdate";
 
 export type TransitionStatus =
 	| "entered"

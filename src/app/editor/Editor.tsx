@@ -1,6 +1,6 @@
 "use client";
 
-import { SaveLevelModal } from "@/SaveLevelModal";
+import { SaveLevelModal } from "@/app/editor/SaveLevelModal";
 import { Button } from "@/components/Button";
 import { ButtonGroup } from "@/components/ButtonGroup";
 import { EnemiesPanel } from "@/components/EnemiesPanel";
@@ -20,7 +20,6 @@ import {
 	MODE_SELECT,
 	MODE_HELP,
 } from "@/game/editor/editor";
-import { levelDataSchema } from "@/schemas";
 import {
 	useState,
 	useRef,
@@ -30,11 +29,15 @@ import {
 	WheelEventHandler,
 	WheelEvent,
 	MouseEvent,
+	useMemo,
 } from "react";
 import { Editor as EditorClass } from "@/game/editor/editor";
 import { Vector } from "@/game/vector";
 import { User } from "@/components/User";
 import { useUser } from "@clerk/nextjs";
+import { ExportLevelModal } from "./ExportLevelModal";
+import { ImportLevelModal } from "./ImportLevelModal";
+import { ConfirmModal } from "@/components/Modal";
 
 function mousePoint(
 	canvas: HTMLCanvasElement,
@@ -54,6 +57,9 @@ export const Editor = () => {
 	const [wallAndButtonIndex, setWallAndButtonIndex] = useState(0);
 	const [isTesting, setIsTesting] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
+	const [isExport, setExport] = useState(false);
+	const [isImport, setImport] = useState(false);
+	const [clear, setClear] = useState(false);
 
 	const onChangeButton = (button: string) => {
 		setButton(button);
@@ -231,12 +237,54 @@ export const Editor = () => {
 		}
 	}, [isTesting]);
 
+	const levelDataExport = useMemo(() => {
+		if (isExport && editorInstance.current) {
+			return editorInstance.current.toJSON();
+		} else {
+			return null;
+		}
+	}, [isExport]);
+
 	return (
 		<div className="overflow-hidden">
 			<SaveLevelModal
 				open={isSaving}
 				onClose={() => {
 					setIsSaving(false);
+				}}
+			/>
+			<ExportLevelModal
+				open={isExport}
+				levelData={levelDataExport}
+				onClose={() => {
+					setExport(false);
+				}}
+			/>
+			<ImportLevelModal
+				open={isImport}
+				onClose={() => {
+					setImport(false);
+				}}
+				onImport={(levelData) => {
+					if (editorInstance.current) {
+						editorInstance.current.fromJSON(levelData);
+					}
+				}}
+			/>
+			<ConfirmModal
+				open={clear}
+				title="Clear level"
+				description="Are you sure you want to clear?"
+				destructive
+				onClose={() => {
+					setClear(false);
+				}}
+				confirmButtonLabel="Clear"
+				onConfirm={() => {
+					if (editorInstance.current) {
+						editorInstance.current.clear();
+						setClear(false);
+					}
 				}}
 			/>
 			<div
@@ -306,7 +354,7 @@ export const Editor = () => {
 								}
 							}}
 						>
-							{isTesting ? "Stop" : "Test"}
+							{isTesting ? "Stop" : "Play test"}
 						</Button>
 						<Button
 							onClick={() => {
@@ -316,31 +364,22 @@ export const Editor = () => {
 							Save
 						</Button>
 						<Button
-							onClick={async () => {
-								if (editorInstance.current) {
-									const json = await navigator.clipboard.readText();
-									try {
-										editorInstance.current.fromJSON(
-											levelDataSchema.parse(JSON.parse(json))
-										);
-										alert("Level imported successfully");
-									} catch (e) {
-										alert(
-											"Failed to import. Make sure you have a valid level data in your clipboard."
-										);
-										console.log(e);
-									}
-								}
+							onClick={() => {
+								setClear(true);
+							}}
+						>
+							Clear
+						</Button>
+						<Button
+							onClick={() => {
+								setImport(true);
 							}}
 						>
 							Import
 						</Button>
 						<Button
 							onClick={() => {
-								navigator.clipboard.writeText(
-									JSON.stringify(editorInstance.current?.toJSON(), null, 2)
-								);
-								alert("Level data was copied to clip board");
+								setExport(true);
 							}}
 						>
 							Export

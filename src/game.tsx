@@ -1,3 +1,5 @@
+"use client";
+
 import { useLayoutEffect, useRef } from "react";
 import { LevelData } from "./schemas";
 import { startGame } from "./game/rapt";

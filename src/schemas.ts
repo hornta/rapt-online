@@ -65,26 +65,24 @@ export const entitySchema = z.discriminatedUnion("class", [
 
 export type Entity = z.infer<typeof entitySchema>;
 
-export const levelDataSchema = z
-	.object({
-		unique_id: z.number(),
-		end: z.tuple([z.number(), z.number()]),
-		start: z.tuple([z.number(), z.number()]),
-		height: z.number(),
-		width: z.number(),
-		cells: z.array(
-			z.array(
-				z.union([
-					z.literal(0),
-					z.literal(1),
-					z.literal(2),
-					z.literal(3),
-					z.literal(4),
-					z.literal(5),
-				])
-			)
-		),
-		entities: z.array(entitySchema),
-	})
-	.strict();
+export const levelDataSchema = z.object({
+	end: z.tuple([z.number(), z.number()]),
+	start: z.tuple([z.number(), z.number()]),
+	height: z.number(),
+	width: z.number(),
+	cells: z.array(
+		z.array(
+			z.union([
+				z.literal(0),
+				z.literal(1),
+				z.literal(2),
+				z.literal(3),
+				z.literal(4),
+				z.literal(5),
+			])
+		)
+	),
+	entities: z.array(entitySchema),
+});
+
 export type LevelData = z.infer<typeof levelDataSchema>;

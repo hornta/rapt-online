@@ -21,6 +21,7 @@ import { ToggleInitiallyOpenCommand } from "./commands/toggleInitiallyOpenComman
 import { Door } from "./placeables/door";
 import { Vector } from "../vector";
 import { Sprite } from "./placeables/sprite";
+import { ClearCommand } from "./commands/clearCommand";
 
 export class Document {
 	undoStack: UndoStack;
@@ -111,6 +112,10 @@ export class Document {
 
 	setSignText(sign: Sprite, text: string) {
 		this.undoStack.push(new SetSignTextCommand(sign, text));
+	}
+
+	clear() {
+		this.undoStack.push(new ClearCommand(this.world));
 	}
 
 	isClean() {
