@@ -83,6 +83,7 @@ export async function POST(request: NextRequest) {
 			});
 		}
 	} catch (err) {
+		console.log(err);
 		if (err instanceof Error) {
 			return new Response(JSON.stringify(err, null, 2), {
 				status: 400,
