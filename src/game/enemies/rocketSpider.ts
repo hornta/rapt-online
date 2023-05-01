@@ -1,5 +1,6 @@
 import { Circle } from "../circle";
-import { lineOfSightWorld, overlapShapePlayers } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
+import { overlapShapePlayers } from "../collision/overlap/overlapShapePlayers";
 import {
 	EDGE_FLOOR,
 	ENEMY_ROCKET,
@@ -171,7 +172,6 @@ const SPIDER_LEGS_FLOOR_ELASTICITY = 0.1;
 export class RocketSpiderLegs extends WalkingEnemy {
 	body: RocketSpider;
 	weakSpot: Circle;
-	velocity: Vector;
 
 	constructor(center: Vector, angle: number, body: RocketSpider) {
 		super(-1, center, SPIDER_LEGS_RADIUS, SPIDER_LEGS_ELASTICITY);
@@ -204,7 +204,7 @@ export class RocketSpiderLegs extends WalkingEnemy {
 	}
 
 	// Walks in a straight line, but doesn't walk into the player
-	move(seconds: number) {
+	override move(seconds: number) {
 		if (this.isOnFloor()) {
 			if (
 				this.playerWillCollide(gameState.playerA) ||
@@ -219,7 +219,7 @@ export class RocketSpiderLegs extends WalkingEnemy {
 	}
 
 	// Acts like it has elasticity of SPIDER_FLOOR_ELASTICITY on floors, and maintains constant horizontal speed
-	reactToWorld(contact: Contact) {
+	override reactToWorld(contact: Contact) {
 		if (Edge.getOrientation(contact.normal) === EDGE_FLOOR) {
 			const perpendicular = this.velocity.projectOntoAUnitVector(
 				contact.normal
@@ -233,7 +233,7 @@ export class RocketSpiderLegs extends WalkingEnemy {
 	}
 
 	// The player can kill the Spider by running through its legs
-	reactToPlayer() {
+	override reactToPlayer() {
 		this.weakSpot.moveTo(this.hitCircle.getCenter());
 		if (overlapShapePlayers(this.weakSpot).length === 0) {
 			this.setDead(true);
@@ -246,7 +246,7 @@ export class RocketSpiderLegs extends WalkingEnemy {
 		this.isDead = isDead;
 	}
 
-	onDeath() {
+	override onDeath() {
 		gameState.incrementStat(STAT_ENEMY_DEATHS);
 
 		// make things that look like legs fly everywhere
@@ -274,7 +274,7 @@ export class RocketSpiderLegs extends WalkingEnemy {
 
 	draw() {}
 
-	afterTick() {}
+	override afterTick() {}
 }
 
 function drawSpiderBody(c: CanvasRenderingContext2D) {
@@ -395,7 +395,7 @@ export class RocketSpider extends SpawningEnemy {
 		this.animationIsOnFloor = false;
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
@@ -476,7 +476,7 @@ export class RocketSpider extends SpawningEnemy {
 	}
 
 	// Rocket spiders hover slowly over the floor, bouncing off walls with elasticity 1
-	move() {
+	override move() {
 		// The height difference is h = player_height - SPIDER_LEGS_RADIUS + SPIDER_HEIGHT / 2
 		return this.legs
 			.getCenter()
@@ -484,7 +484,7 @@ export class RocketSpider extends SpawningEnemy {
 			.add(new Vector(0, 0.81 - SPIDER_LEGS_RADIUS + SPIDER_HEIGHT * 0.5));
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		const position = this.getCenter();
 		this.sprites[SPIDER_BODY].offsetBeforeRotation = position;
 		this.sprites[SPIDER_BODY].flip = this.legs.velocity.x > 0;
@@ -520,11 +520,11 @@ export class RocketSpider extends SpawningEnemy {
 	}
 
 	// The body of the Spider kills the player
-	reactToPlayer(player: Player) {
+	override reactToPlayer(player: Player) {
 		player.isDead = true;
 	}
 
-	onDeath() {
+	override onDeath() {
 		// don't add this death to the stats because it is added in the legs OnDeath() method
 
 		// add something that looks like the body
@@ -545,5 +545,5 @@ export class RocketSpider extends SpawningEnemy {
 		this.sprites[SPIDER_BODY].draw(c);
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

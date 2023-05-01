@@ -11,7 +11,6 @@ const LASER_BOUNCES = 0;
 
 export class Laser extends FreefallEnemy {
 	bouncesLeft: number;
-	velocity: Vector;
 
 	constructor(center: Vector, direction: number) {
 		super(ENEMY_LASER, center, LASER_RADIUS, 1);
@@ -23,11 +22,11 @@ export class Laser extends FreefallEnemy {
 		);
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		return this.velocity.mul(seconds);
 	}
 
-	reactToWorld() {
+	override reactToWorld() {
 		if (this.bouncesLeft <= 0) {
 			this.isDead = true;
 
@@ -54,7 +53,7 @@ export class Laser extends FreefallEnemy {
 		}
 	}
 
-	draw(c: CanvasRenderingContext2D) {
+	override draw(c: CanvasRenderingContext2D) {
 		const heading = this.velocity.unit().mul(LASER_RADIUS);
 		const segment = new Segment(
 			this.getCenter().sub(heading),

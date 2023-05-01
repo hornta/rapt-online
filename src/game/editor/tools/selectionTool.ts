@@ -16,7 +16,6 @@ export class SelectionTool extends Tool {
 	mode: 0 | 1 | 2 | 3 | 4;
 	start: null | Vector;
 	end: null | Vector;
-	modifierKeyPressed: boolean;
 	originalSelection: BasePlaceable[];
 	rotationOrigin: null | Vector;
 

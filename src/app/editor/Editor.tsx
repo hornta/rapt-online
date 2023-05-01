@@ -33,11 +33,12 @@ import {
 } from "react";
 import { Editor as EditorClass } from "@/game/editor/editor";
 import { Vector } from "@/game/vector";
-import { User } from "@/components/User";
 import { useUser } from "@clerk/nextjs";
 import { ExportLevelModal } from "./ExportLevelModal";
 import { ImportLevelModal } from "./ImportLevelModal";
 import { ConfirmModal } from "@/components/Modal";
+import { debounce } from "@/utils/debounce";
+import { LevelData, levelDataSchema } from "@/schemas";
 
 function mousePoint(
 	canvas: HTMLCanvasElement,
@@ -45,11 +46,11 @@ function mousePoint(
 		| MouseEvent<HTMLCanvasElement, globalThis.MouseEvent>
 		| WheelEvent<HTMLCanvasElement>
 ) {
-	return new Vector(
-		event.pageX - canvas.offsetLeft,
-		event.pageY - canvas.offsetTop
-	);
+	const { left, top } = canvas.getBoundingClientRect();
+	return new Vector(event.pageX - left, event.pageY - top);
 }
+
+const LOCAL_STORAGE_KEY = "work_in_progress_level";
 
 export const Editor = () => {
 	const [button, setButton] = useState("empty");
@@ -209,7 +210,19 @@ export const Editor = () => {
 			try {
 				let editor = editorInstance.current;
 				if (!editor) {
-					editorInstance.current = new EditorClass(canvasEl.getContext("2d")!);
+					let initialLevel: LevelData | undefined = undefined;
+					const savedLevel = localStorage.getItem(LOCAL_STORAGE_KEY);
+					try {
+						if (savedLevel !== null) {
+							initialLevel = levelDataSchema.parse(JSON.parse(savedLevel));
+						}
+					} catch {
+						//
+					}
+					editorInstance.current = new EditorClass(
+						canvasEl.getContext("2d")!,
+						initialLevel
+					);
 					editor = editorInstance.current;
 				}
 				const resizeHandler = () => {
@@ -220,10 +233,26 @@ export const Editor = () => {
 					editor!.resize();
 				};
 
+				const saveToLocalStorage = debounce(() => {
+					if (editor) {
+						localStorage.setItem(
+							LOCAL_STORAGE_KEY,
+							JSON.stringify(editor.toJSON())
+						);
+					}
+				}, 500);
+
+				const onUpdateListener = () => {
+					saveToLocalStorage();
+				};
+
+				editor.addListener("update", onUpdateListener);
+
 				resizeHandler();
 				window.addEventListener("resize", resizeHandler);
 				return () => {
 					window.removeEventListener("resize", resizeHandler);
+					editor?.removeListener("update", onUpdateListener);
 				};
 			} catch (e) {
 				console.log(e);
@@ -246,11 +275,17 @@ export const Editor = () => {
 	}, [isExport]);
 
 	return (
-		<div className="overflow-hidden">
+		<div className="overflow-hidden absolute top-0 bottom-0 left-0 right-0">
 			<SaveLevelModal
 				open={isSaving}
 				onClose={() => {
 					setIsSaving(false);
+				}}
+				getLevelData={() => {
+					if (editorInstance.current) {
+						return editorInstance.current.toJSON();
+					}
+					return null;
 				}}
 			/>
 			<ExportLevelModal
@@ -360,6 +395,7 @@ export const Editor = () => {
 							onClick={() => {
 								setIsSaving(true);
 							}}
+							disabled={isTesting}
 						>
 							Save
 						</Button>
@@ -367,6 +403,7 @@ export const Editor = () => {
 							onClick={() => {
 								setClear(true);
 							}}
+							disabled={isTesting}
 						>
 							Clear
 						</Button>
@@ -374,6 +411,7 @@ export const Editor = () => {
 							onClick={() => {
 								setImport(true);
 							}}
+							disabled={isTesting}
 						>
 							Import
 						</Button>
@@ -381,11 +419,11 @@ export const Editor = () => {
 							onClick={() => {
 								setExport(true);
 							}}
+							disabled={isTesting}
 						>
 							Export
 						</Button>
 					</ButtonGroup>
-					<User />
 				</div>
 			</div>
 			<div className="flex" ref={canvasContainerRef}>

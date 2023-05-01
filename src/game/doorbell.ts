@@ -42,11 +42,11 @@ export class Doorbell extends Enemy {
 		this.doors.push(doorIndex);
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
-	tick(seconds: number) {
+	override tick(seconds: number) {
 		this.rotationPercent += seconds;
 		if (this.rotationPercent > 1) {
 			this.rotationPercent = 1;
@@ -57,7 +57,7 @@ export class Doorbell extends Enemy {
 		this.triggeredLastTick = this.triggeredThisTick;
 	}
 
-	reactToPlayer() {
+	override reactToPlayer() {
 		this.triggeredThisTick = true;
 		if (this.triggeredLastTick) {
 			return;
@@ -112,5 +112,5 @@ export class Doorbell extends Enemy {
 		}
 	}
 
-	afterTick() {}
+	override afterTick() {}
 }

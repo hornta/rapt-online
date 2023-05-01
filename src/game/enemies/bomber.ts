@@ -39,11 +39,11 @@ export class Bomber extends SpawningEnemy {
 		}
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		return this.velocity.mul(seconds);
 	}
 
-	reactToPlayer(player: Player) {
+	override reactToPlayer(player: Player) {
 		const relativePos = player.getCenter().sub(this.getCenter());
 		// If player jumps on top of the Bomber, it explodes
 		if (relativePos.y > BOMBER_HEIGHT - 0.05) {
@@ -70,7 +70,7 @@ export class Bomber extends SpawningEnemy {
 		return true;
 	}
 
-	onDeath() {
+	override onDeath() {
 		gameState.incrementStat(STAT_ENEMY_DEATHS);
 	}
 

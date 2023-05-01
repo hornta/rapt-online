@@ -183,11 +183,11 @@ export class Sprite extends BasePlaceable {
 		);
 	}
 
-	getAngle() {
+	override getAngle() {
 		return this.angle;
 	}
 
-	setAngle(newAngle: number) {
+	override setAngle(newAngle: number) {
 		this.angle = newAngle;
 	}
 }

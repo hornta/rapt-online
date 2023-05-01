@@ -24,11 +24,11 @@ export class GoldenCog extends Enemy {
 		return this.hitCircle;
 	}
 
-	reactToPlayer() {
+	override reactToPlayer() {
 		this.isDead = true;
 	}
 
-	onDeath() {
+	override onDeath() {
 		if (gameState.gameStatus === GAME_IN_PLAY) {
 			gameState.incrementStat(STAT_COGS_COLLECTED);
 		}
@@ -51,7 +51,7 @@ export class GoldenCog extends Enemy {
 		}
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		this.timeSinceStart += seconds;
 	}
 

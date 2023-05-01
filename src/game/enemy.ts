@@ -1,9 +1,7 @@
 import { Circle } from "./circle";
-import {
-	collideEntityWorld,
-	containsPointShape,
-	overlapShapePlayers,
-} from "./collisionDetection";
+import { collideEntityWorld } from "./collision/collisions";
+import { overlapShapePlayers } from "./collision/overlap/overlapShapePlayers";
+import { containsPointShape } from "./collision/utils/containsPointShape";
 import { EDGE_ENEMIES } from "./constants";
 import { Contact } from "./contact";
 import { Entity } from "./entity";
@@ -91,9 +89,7 @@ export abstract class Enemy extends Entity {
 		return -1;
 	}
 
-	setTarget(player: Player) {
-		//
-	}
+	setTarget(player: Player) {}
 
 	onDeath() {
 		//

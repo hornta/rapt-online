@@ -10,7 +10,6 @@ const RIOT_BULLET_RADIUS = 0.1;
 const RIOT_BULLET_SPEED = 7;
 
 export class RiotBullet extends FreefallEnemy {
-	velocity: Vector;
 	constructor(center: Vector, direction: number) {
 		super(ENEMY_RIOT_BULLET, center, RIOT_BULLET_RADIUS, 0);
 		this.velocity = new Vector(
@@ -19,7 +18,7 @@ export class RiotBullet extends FreefallEnemy {
 		);
 	}
 
-	reactToPlayer(player: Player) {
+	override reactToPlayer(player: Player) {
 		if (!this.isDead) {
 			// the delta-velocity applied to the player
 			const deltaVelocity = this.velocity.mul(0.75);
@@ -28,7 +27,7 @@ export class RiotBullet extends FreefallEnemy {
 		this.isDead = true;
 	}
 
-	onDeath() {
+	override onDeath() {
 		const position = this.getCenter();
 
 		// smoke
@@ -51,7 +50,7 @@ export class RiotBullet extends FreefallEnemy {
 		Enemy.prototype.onDeath.call(this);
 	}
 
-	draw(c: CanvasRenderingContext2D) {
+	override draw(c: CanvasRenderingContext2D) {
 		const pos = this.getCenter();
 		c.strokeStyle = "black";
 		c.fillStyle = "yellow";

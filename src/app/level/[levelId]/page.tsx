@@ -8,7 +8,6 @@ export default async function Page({
 	params: { levelId: string };
 }) {
 	const numericId = Number(params.levelId);
-	console.log(numericId);
 	if (Number.isNaN(numericId)) {
 		return "404";
 	}

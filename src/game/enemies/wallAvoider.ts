@@ -1,4 +1,4 @@
-import { closestToEntityWorld } from "../collisionDetection";
+import { closestToEntityWorld } from "../collision/closest-to/closestToEntityWorld";
 import { ENEMY_WALL_AVOIDER, STAT_ENEMY_DEATHS } from "../constants";
 import { gameState } from "../game";
 import { randInRange } from "../math";
@@ -16,7 +16,6 @@ export class WallAvoider extends RotatingEnemy {
 	acceleration: Vector;
 	angularVelocity: number;
 	bodySprite: Sprite;
-	velocity = new Vector(0, 0);
 
 	constructor(center: Vector, target: Player) {
 		super(ENEMY_WALL_AVOIDER, center, WALL_AVOIDER_RADIUS, 0, 0);
@@ -46,7 +45,7 @@ export class WallAvoider extends RotatingEnemy {
 		});
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		if (this.target.isDead) {
 			this.velocity.x = this.velocity.y = 0;
 			return this.velocity.mul(seconds);
@@ -82,11 +81,11 @@ export class WallAvoider extends RotatingEnemy {
 		}
 	}
 
-	reactToWorld() {
+	override reactToWorld() {
 		this.isDead = true;
 	}
 
-	onDeath() {
+	override onDeath() {
 		gameState.incrementStat(STAT_ENEMY_DEATHS);
 
 		const position = this.getCenter();
@@ -109,7 +108,7 @@ export class WallAvoider extends RotatingEnemy {
 		}
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		this.bodySprite.offsetBeforeRotation = this.getCenter();
 		this.angularVelocity =
 			(this.angularVelocity + randInRange(-Math.PI, Math.PI)) * 0.5;

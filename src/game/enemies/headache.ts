@@ -1,4 +1,4 @@
-import { lineOfSightWorld } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
 import { ENEMY_HEADACHE, GAME_SCALE, STAT_ENEMY_DEATHS } from "../constants";
 import { gameState } from "../game";
 import { randInRange } from "../math";
@@ -95,7 +95,7 @@ export class Headache extends HoveringEnemy {
 		}
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		this.isTracking = false;
 
 		// If the headache isn't yet attached to a Player
@@ -151,11 +151,11 @@ export class Headache extends HoveringEnemy {
 		return new Vector(0, 0);
 	}
 
-	reactToWorld() {
+	override reactToWorld() {
 		// Nothing happens
 	}
 
-	onDeath() {
+	override onDeath() {
 		gameState.incrementStat(STAT_ENEMY_DEATHS);
 
 		const position = this.getCenter();
@@ -196,7 +196,7 @@ export class Headache extends HoveringEnemy {
 		}
 	}
 
-	reactToPlayer(player: Player) {
+	override reactToPlayer(player: Player) {
 		if (player === this.target) {
 			player.disableJump();
 		} else if (
@@ -208,11 +208,11 @@ export class Headache extends HoveringEnemy {
 		}
 	}
 
-	getTarget() {
+	override getTarget() {
 		return Number(this.target === gameState.playerB);
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		const center = this.getCenter();
 		for (let i = 0; i < this.chains.length; i++) {
 			this.chains[i].tick(seconds, center);

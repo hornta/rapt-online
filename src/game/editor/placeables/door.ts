@@ -88,7 +88,7 @@ export class Door extends BasePlaceable {
 		);
 	}
 
-	setAnchor(anchor: Vector) {
+	override setAnchor(anchor: Vector) {
 		const floorAnchor = new Vector(
 			Math.floor(anchor.x + 0.5),
 			Math.floor(anchor.y + 0.5)
@@ -98,16 +98,16 @@ export class Door extends BasePlaceable {
 		this.edge.end = floorAnchor.add(this.offsetToEnd);
 	}
 
-	resetAnchor() {
+	override resetAnchor() {
 		this.anchor = new Vector(
 			Math.min(this.edge.start.x, this.edge.end.x),
 			Math.min(this.edge.start.y, this.edge.end.y)
 		);
 	}
 
-	getCenter() {
+	override getCenter() {
 		return this.edge.start.add(this.edge.end).div(2);
 	}
 
-	setAngle() {}
+	override setAngle() {}
 }

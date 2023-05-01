@@ -36,7 +36,7 @@ export abstract class SpawningEnemy extends Enemy {
 	}
 
 	// Special tick to include a step to spawn enemies
-	tick(seconds: number) {
+	override tick(seconds: number) {
 		this.timeUntilNextSpawn -= seconds;
 
 		if (this.timeUntilNextSpawn <= 0) {
@@ -55,5 +55,5 @@ export abstract class SpawningEnemy extends Enemy {
 	// Returns true iff an enemy is actually spawned
 	abstract spawn(): boolean;
 
-	reactToPlayer(player: Player): void {}
+	override reactToPlayer(player: Player): void {}
 }

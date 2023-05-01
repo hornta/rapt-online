@@ -1,10 +1,9 @@
-import { closestToEntityWorld } from "../collisionDetection";
+import { closestToEntityWorld } from "../collision/closest-to/closestToEntityWorld";
 import { ENEMY_POPPER } from "../constants";
 import { Contact } from "../contact";
 import { gameState } from "../game";
 import { Keyframe } from "../keyframe";
 import { randInRange } from "../math";
-import { Player } from "../player";
 import { Sprite } from "../sprite";
 import { Vector } from "../vector";
 import { WalkingEnemy } from "./walkingEnemy";
@@ -118,7 +117,7 @@ export class Popper extends WalkingEnemy {
 		this.sprites = createPopperSprites();
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		if (this.timeToNextJump <= 0) {
 			// POPPER_MIN_JUMP_Y <= velocity.y < POPPER_MAX_JUMP_Y
 			this.velocity.y = randInRange(POPPER_MIN_JUMP_Y, POPPER_MAX_JUMP_Y);
@@ -136,7 +135,7 @@ export class Popper extends WalkingEnemy {
 		return this.accelerate(new Vector(0, POPPER_ACCEL), seconds);
 	}
 
-	reactToWorld(contact: Contact) {
+	override reactToWorld(contact: Contact) {
 		if (contact.normal.y >= 0.999) {
 			this.velocity.x = 0;
 			this.velocity.y = 0;
@@ -144,7 +143,7 @@ export class Popper extends WalkingEnemy {
 		}
 	}
 
-	afterTick() {
+	override afterTick() {
 		const position = this.getCenter();
 		this.sprites[POPPER_BODY].offsetBeforeRotation = position;
 
@@ -185,7 +184,7 @@ export class Popper extends WalkingEnemy {
 		this.sprites[POPPER_BODY].draw(c);
 	}
 
-	avoidsSpawn() {
+	override avoidsSpawn() {
 		return true;
 	}
 }

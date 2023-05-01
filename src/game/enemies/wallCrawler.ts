@@ -1,4 +1,4 @@
-import { closestToEntityWorld } from "../collisionDetection";
+import { closestToEntityWorld } from "../collision/closest-to/closestToEntityWorld";
 import { ENEMY_CRAWLER } from "../constants";
 import { gameState } from "../game";
 import { Sprite } from "../sprite";
@@ -13,7 +13,6 @@ const PUSH_FACTOR = 0.11;
 export class WallCrawler extends WalkingEnemy {
 	firstTick: boolean;
 	clockwise: boolean;
-	velocity: Vector;
 	bodySprite: Sprite;
 
 	constructor(center: Vector, direction: number) {
@@ -59,7 +58,7 @@ export class WallCrawler extends WalkingEnemy {
 	}
 
 	// Rotates about the closest point in the world
-	move(seconds: number) {
+	override move(seconds: number) {
 		const ref_shapePoint: { ref: Vector } = {} as { ref: Vector };
 		const ref_worldPoint: { ref: Vector } = {} as { ref: Vector };
 		const closestPointDist = closestToEntityWorld(
@@ -107,7 +106,7 @@ export class WallCrawler extends WalkingEnemy {
 		return this.velocity.mul(WALL_CRAWLER_SPEED * seconds);
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		const deltaAngle = (WALL_CRAWLER_SPEED / WALL_CRAWLER_RADIUS) * seconds;
 		this.bodySprite.offsetBeforeRotation = this.getCenter();
 		if (this.clockwise) {
@@ -121,5 +120,5 @@ export class WallCrawler extends WalkingEnemy {
 		this.bodySprite.draw(c);
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

@@ -1,4 +1,4 @@
-import { lineOfSightWorld } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
 import { ENEMY_BOUNCY_ROCKET_LAUNCHER } from "../constants";
 import { gameState } from "../game";
 import { Player } from "../player";
@@ -98,11 +98,11 @@ export class BouncyRocketLauncher extends SpawningEnemy {
 		);
 	}
 
-	setTarget(player: Player) {
+	override setTarget(player: Player) {
 		this.target = player;
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
@@ -110,13 +110,13 @@ export class BouncyRocketLauncher extends SpawningEnemy {
 		this.canFire = true;
 	}
 
-	getTarget() {
+	override getTarget() {
 		return Number(this.target === gameState.playerB);
 	}
 
-	reactToWorld(): void {}
+	override reactToWorld(): void {}
 
-	move(): Vector {
+	override move(): Vector {
 		return new Vector(0, 0);
 	}
 
@@ -149,7 +149,7 @@ export class BouncyRocketLauncher extends SpawningEnemy {
 		return false;
 	}
 
-	afterTick() {
+	override afterTick() {
 		const position = this.getCenter();
 		if (!this.target.isDead) {
 			this.bodySprite.angle = position.sub(this.target.getCenter()).atan2();

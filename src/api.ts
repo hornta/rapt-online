@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { LevelData } from "./schemas";
 
 export const api = createApi({
 	reducerPath: "api",
@@ -11,13 +12,14 @@ export const api = createApi({
 				description: string;
 				one_player: boolean;
 				two_players: boolean;
+				levelData: LevelData;
 			}
 		>({
-			query: ({ description, name, one_player, two_players }) => {
+			query: ({ description, name, one_player, two_players, levelData }) => {
 				return {
 					url: `api/publish-level`,
 					method: "POST",
-					body: { name, description, one_player, two_players },
+					body: { name, description, one_player, two_players, levelData },
 				};
 			},
 		}),

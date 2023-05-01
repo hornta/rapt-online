@@ -21,7 +21,7 @@ export class Grenade extends FreefallEnemy {
 		this.timeUntilExplodes = GRENADE_LIFETIME;
 	}
 
-	draw(c: CanvasRenderingContext2D) {
+	override draw(c: CanvasRenderingContext2D) {
 		const position = this.getShape().getCenter();
 		const percentUntilExplodes = this.timeUntilExplodes / GRENADE_LIFETIME;
 
@@ -46,7 +46,7 @@ export class Grenade extends FreefallEnemy {
 	}
 
 	// Grenades have a Tick that counts until their explosion
-	tick(seconds: number) {
+	override tick(seconds: number) {
 		this.timeUntilExplodes -= seconds;
 
 		if (this.timeUntilExplodes <= 0) {
@@ -57,9 +57,9 @@ export class Grenade extends FreefallEnemy {
 	}
 
 	// Grenades bounce around, and are not destroyed by edges like other FreefallEnemies
-	reactToWorld() {}
+	override reactToWorld() {}
 
-	onDeath() {
+	override onDeath() {
 		const position = this.getCenter();
 
 		// fire

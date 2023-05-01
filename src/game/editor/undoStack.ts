@@ -1,13 +1,20 @@
+import { EventEmitter } from "@/utils/EventEmitter";
 import { Command } from "./commands/command";
 import { MacroCommand } from "./commands/macroCommand";
 
-export class UndoStack {
+export class UndoStack extends EventEmitter<{
+	undo: () => void;
+	redo: () => void;
+	command: (command: Command) => void;
+}> {
 	commands: Command[];
 	macros: MacroCommand[];
 	currentIndex: number;
 	cleanIndex: number;
 
 	constructor() {
+		super();
+
 		this.commands = [];
 		this.macros = [];
 		this.currentIndex = 0;
@@ -55,6 +62,7 @@ export class UndoStack {
 	push(command: Command) {
 		this.#push(command);
 		command.redo();
+		this.emit("command", command);
 	}
 
 	canUndo() {
@@ -84,12 +92,14 @@ export class UndoStack {
 	undo() {
 		if (this.canUndo()) {
 			this.commands[--this.currentIndex].undo();
+			this.emit("undo");
 		}
 	}
 
 	redo() {
 		if (this.canRedo()) {
 			this.commands[this.currentIndex++].redo();
+			this.emit("redo");
 		}
 	}
 

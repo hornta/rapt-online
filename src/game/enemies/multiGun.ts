@@ -1,4 +1,4 @@
-import { lineOfSightWorld } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
 import { ENEMY_MULTI_GUN } from "../constants";
 import { gameState } from "../game";
 import { Vector } from "../vector";
@@ -54,7 +54,7 @@ export class MultiGun extends SpawningEnemy {
 		);
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
@@ -99,7 +99,7 @@ export class MultiGun extends SpawningEnemy {
 		return fired;
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		const position = this.getCenter();
 		const redGunTarget =
 			this.gunPositions[
@@ -223,5 +223,5 @@ export class MultiGun extends SpawningEnemy {
 		c.stroke();
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

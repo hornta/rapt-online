@@ -7,14 +7,12 @@ import { FreefallEnemy } from "./freefallEnemy";
 export const BOMB_RADIUS = 0.15;
 
 export class Bomb extends FreefallEnemy {
-	velocity: Vector;
-
 	constructor(center: Vector, velocity: Vector) {
 		super(ENEMY_BOMB, center, BOMB_RADIUS, 0);
 		this.velocity = velocity;
 	}
 
-	onDeath() {
+	override onDeath() {
 		const position = this.getShape().getCenter();
 
 		for (let i = 0; i < 50; ++i) {

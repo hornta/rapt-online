@@ -66,7 +66,7 @@ export class BouncyRocket extends Rocket {
 		};
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		this.heading = this.velocity.atan2();
 		this.calcHeading(seconds);
 		this.velocity = new Vector(
@@ -76,7 +76,7 @@ export class BouncyRocket extends Rocket {
 		return this.velocity.mul(seconds);
 	}
 
-	reactToWorld() {
+	override reactToWorld() {
 		--this.hitsUntilExplodes;
 
 		if (this.hitsUntilExplodes <= 0) {

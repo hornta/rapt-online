@@ -44,6 +44,7 @@ export const Button = ({
 				"disabled:cursor-not-allowed",
 				className
 			)}
+			disabled={disabled}
 			{...props}
 		>
 			{isLoading && (

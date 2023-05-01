@@ -51,11 +51,11 @@ export class SpikeBall extends Enemy {
 		return this.hitCircle;
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		this.sprites[0].offsetBeforeRotation = this.getCenter();
 
 		this.sprites[0].angle -= seconds * ((25 * Math.PI) / 180);
@@ -67,5 +67,5 @@ export class SpikeBall extends Enemy {
 		this.sprites[0].draw(c);
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

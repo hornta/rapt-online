@@ -1,5 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
 import "./globals.css";
+import { Sidebar } from "@/sidebar/Sidebar";
 import Providers from "@/providers";
 
 export const metadata = {
@@ -16,7 +17,12 @@ export default function RootLayout({
 		<html lang="en">
 			<ClerkProvider>
 				<body>
-					<Providers>{children}</Providers>
+					<Providers>
+						<Sidebar />
+						<div className="ml-16 sm:ml-64 relative min-h-screen">
+							{children}
+						</div>
+					</Providers>
 				</body>
 			</ClerkProvider>
 		</html>

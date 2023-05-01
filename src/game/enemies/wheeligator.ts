@@ -49,7 +49,7 @@ export class Wheeligator extends WalkingEnemy {
 		});
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		const isOnFloor = this.isOnFloor();
 
 		if (!this.hitGround && isOnFloor) {
@@ -69,7 +69,7 @@ export class Wheeligator extends WalkingEnemy {
 		return this.velocity.mul(seconds);
 	}
 
-	reactToWorld(contact: Contact) {
+	override reactToWorld(contact: Contact) {
 		// If a floor, bounce off like elasticity is FLOOR_ELASTICITY
 		if (Edge.getOrientation(contact.normal) === EDGE_FLOOR) {
 			const perpendicular = this.velocity.projectOntoAUnitVector(
@@ -83,7 +83,7 @@ export class Wheeligator extends WalkingEnemy {
 		}
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		this.bodySprite.offsetBeforeRotation = this.getCenter();
 		this.bodySprite.angle =
 			this.bodySprite.angle + this.angularVelocity * seconds;

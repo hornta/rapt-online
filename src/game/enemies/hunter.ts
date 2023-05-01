@@ -1,4 +1,4 @@
-import { lineOfSightWorld } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
 import { ENEMY_HUNTER } from "../constants";
 import { gameState } from "../game";
 import { Player } from "../player";
@@ -62,7 +62,7 @@ export class Hunter extends RotatingEnemy {
 		this.sprites[HUNTER_BODY].offsetAfterRotation = new Vector(0, -0.2);
 	}
 
-	avoidsSpawn() {
+	override avoidsSpawn() {
 		return true;
 	}
 
@@ -87,7 +87,7 @@ export class Hunter extends RotatingEnemy {
 		return inSight;
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		// Relative player positions
 		const deltaA = gameState.playerA.getCenter().sub(this.getCenter());
 		const deltaB = gameState.playerB.getCenter().sub(this.getCenter());
@@ -151,7 +151,7 @@ export class Hunter extends RotatingEnemy {
 		return this.accelerate(this.acceleration, seconds);
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		const position = this.getCenter();
 		this.sprites[HUNTER_BODY].offsetBeforeRotation = position;
 
@@ -216,5 +216,5 @@ export class Hunter extends RotatingEnemy {
 		this.sprites[HUNTER_BODY].draw(c);
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

@@ -1,3 +1,4 @@
+import { EventEmitter } from "@/utils/EventEmitter";
 import { LevelData } from "../../schemas";
 import { MOUSE_LEFT, MOUSE_MIDDLE, MOUSE_RIGHT } from "../constants";
 import { rgba } from "../utils";
@@ -41,7 +42,7 @@ export const MODE_ENEMIES = "enemies";
 export const MODE_WALLS_BUTTONS = "walls_and_buttons";
 export const MODE_HELP = "help";
 
-export class Editor {
+export class Editor extends EventEmitter<{ update: (editor: Editor) => void }> {
 	c: CanvasRenderingContext2D;
 	worldScale: number;
 	worldCenter: Vector;
@@ -53,7 +54,9 @@ export class Editor {
 	selectedEnemy: number;
 	selectedWall: number;
 
-	constructor(c: CanvasRenderingContext2D) {
+	constructor(c: CanvasRenderingContext2D, initialLevel?: LevelData) {
+		super();
+
 		this.c = c;
 		this.worldScale = 50;
 		this.worldCenter = new Vector(0, 0);
@@ -65,7 +68,18 @@ export class Editor {
 		this.selectedTool = null;
 		this.activeTool = null;
 
-		this.doc.world.setDefault();
+		if (initialLevel) {
+			this.doc.world.fromJSON(initialLevel);
+		} else {
+			this.doc.world.setDefault();
+		}
+
+		const eventHandler = () => {
+			this.emit("update", this);
+		};
+		this.doc.undoStack.addListener("command", eventHandler);
+		this.doc.undoStack.addListener("redo", eventHandler);
+		this.doc.undoStack.addListener("undo", eventHandler);
 	}
 
 	setMode(mode: string) {

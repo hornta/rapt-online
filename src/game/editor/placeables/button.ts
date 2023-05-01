@@ -41,5 +41,5 @@ export class Button extends BasePlaceable {
 		return new Button(newAnchor, this.type);
 	}
 
-	setAngle() {}
+	override setAngle() {}
 }

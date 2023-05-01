@@ -1,8 +1,6 @@
-import {
-	closestToEntityWorld,
-	collideEntityWorld,
-	onEntityWorld,
-} from "./collisionDetection";
+import { closestToEntityWorld } from "./collision/closest-to/closestToEntityWorld";
+import { collideEntityWorld } from "./collision/collisions";
+import { onEntityWorld } from "./collision/onEntityWorld";
 import {
 	EDGE_CEILING,
 	EDGE_FLOOR,
@@ -95,18 +93,6 @@ function drawPlayerHead(
 }
 
 function createPlayerSprites() {
-	const upperLeg = new Sprite((c) => {
-		drawPlayerQuad(c, 1.5, 1, 0, -10);
-	});
-	const lowerLeg = new Sprite((c) => {
-		drawPlayerQuad(c, 1, 1.5, 0, -10);
-	});
-	const upperArm = new Sprite((c) => {
-		drawPlayerQuad(c, 1.5, 0.5, 0, -9);
-	});
-	const lowerArm = new Sprite((c) => {
-		drawPlayerQuad(c, 0.5, 1.5, 0, -10);
-	});
 	const drawUpperLeg = (c: CanvasRenderingContext2D) => {
 		drawPlayerQuad(c, 1.5, 1, 0, -10);
 	};

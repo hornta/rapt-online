@@ -1,4 +1,4 @@
-import { onEntityWorld } from "./collisionDetection";
+import { onEntityWorld } from "./collision/onEntityWorld";
 import { EDGE_FLOOR } from "./constants";
 import { edgeQuad } from "./edgeQuad";
 import { gameState } from "./game";
@@ -6,7 +6,7 @@ import { Shape } from "./shape";
 import { Vector } from "./vector";
 
 export abstract class Entity {
-	protected velocity = new Vector(0, 0);
+	velocity = new Vector(0, 0);
 	#isDead = false;
 
 	getVelocity() {

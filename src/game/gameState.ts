@@ -1,8 +1,6 @@
 import { LevelData } from "../schemas";
-import {
-	collideEntityWorld,
-	intersectEntitySegment,
-} from "./collisionDetection";
+import { collideEntityWorld } from "./collision/collisions";
+import { intersectEntitySegment } from "./collision/intersect/intersectEntitySegment";
 import {
 	EDGE_RED,
 	EDGE_BLUE,

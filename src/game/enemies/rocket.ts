@@ -67,11 +67,11 @@ export class Rocket extends RotatingEnemy {
 		];
 	}
 
-	getTarget() {
+	override getTarget() {
 		return Number(this.target === gameState.playerB);
 	}
 
-	setTarget(player: Player) {
+	override setTarget(player: Player) {
 		this.target = player;
 	}
 
@@ -88,7 +88,7 @@ export class Rocket extends RotatingEnemy {
 		);
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		if (this.timeUntilFree <= 0) {
 			this.calcHeading(seconds);
 			this.velocity = new Vector(
@@ -101,7 +101,7 @@ export class Rocket extends RotatingEnemy {
 		return this.velocity.mul(seconds);
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		let position = this.getCenter();
 		this.sprites[ROCKET_SPRITE_RED].offsetBeforeRotation = position;
 		this.sprites[ROCKET_SPRITE_BLUE].offsetBeforeRotation = position;
@@ -147,16 +147,16 @@ export class Rocket extends RotatingEnemy {
 		}
 	}
 
-	reactToWorld() {
+	override reactToWorld() {
 		this.isDead = true;
 	}
 
-	reactToPlayer(player: Player) {
+	override reactToPlayer(player: Player) {
 		this.isDead = true;
 		player.isDead = true;
 	}
 
-	onDeath() {
+	override onDeath() {
 		const position = this.getCenter();
 
 		// fire

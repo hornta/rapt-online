@@ -61,17 +61,17 @@ export class HelpSign extends Enemy {
 		return this.hitBox;
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
-	tick(seconds: number) {
+	override tick(seconds: number) {
 		this.timeSinceStart += seconds;
 		this.drawText = false;
 		Enemy.prototype.tick.call(this, seconds);
 	}
 
-	reactToPlayer() {
+	override reactToPlayer() {
 		this.drawText = true;
 	}
 

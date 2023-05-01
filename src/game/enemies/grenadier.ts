@@ -1,4 +1,4 @@
-import { lineOfSightWorld } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
 import { ENEMY_GRENADIER } from "../constants";
 import { gameState } from "../game";
 import { randInRange } from "../math";
@@ -57,15 +57,15 @@ export class Grenadier extends SpawningEnemy {
 		});
 	}
 
-	getTarget() {
+	override getTarget() {
 		return Number(this.target === gameState.playerB);
 	}
 
-	setTarget(player: Player) {
+	override setTarget(player: Player) {
 		this.target = player;
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
@@ -96,7 +96,7 @@ export class Grenadier extends SpawningEnemy {
 		return false;
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		const position = this.getCenter();
 		if (!this.target.isDead) {
 			this.bodySprite.angle =
@@ -130,5 +130,5 @@ export class Grenadier extends SpawningEnemy {
 		this.bodySprite.draw(c);
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

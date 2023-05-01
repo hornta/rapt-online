@@ -13,6 +13,11 @@ import { CheckboxField } from "../../components/checkbox/CheckboxField";
 import { useForm } from "react-hook-form";
 import { usePublishLevelMutation } from "../../api";
 import { Hint } from "../../components/Hint";
+import { LevelData } from "@/schemas";
+import {
+	showErrorNotification,
+	showSuccessNotification,
+} from "@/notifications/events";
 
 interface Inputs {
 	name: string;
@@ -24,9 +29,14 @@ interface Inputs {
 interface SaveLevelModalProps {
 	open: boolean;
 	onClose: () => void;
+	getLevelData: () => LevelData | null;
 }
 
-export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
+export const SaveLevelModal = ({
+	onClose,
+	open,
+	getLevelData,
+}: SaveLevelModalProps) => {
 	const formId = useId();
 
 	const form = useForm<Inputs>({
@@ -47,12 +57,30 @@ export const SaveLevelModal = ({ onClose, open }: SaveLevelModalProps) => {
 				<form
 					id={formId}
 					onSubmit={form.handleSubmit(async (data) => {
-						await publishLevel({
-							description: data.description,
-							name: data.name,
-							one_player: data.one_player,
-							two_players: data.two_players,
-						});
+						const levelData = getLevelData();
+						if (levelData) {
+							const result = await publishLevel({
+								description: data.description,
+								name: data.name,
+								one_player: data.one_player,
+								two_players: data.two_players,
+								levelData: levelData,
+							});
+
+							if ("error" in result) {
+								showErrorNotification({
+									message: "Failed to save level",
+								});
+							} else {
+								showSuccessNotification({
+									message: "The level was saved",
+								});
+							}
+						} else {
+							showErrorNotification({
+								message: "Failed to get level data",
+							});
+						}
 					})}
 				>
 					<Label htmlFor="name">Name</Label>

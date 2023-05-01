@@ -31,7 +31,7 @@ export interface ModalProps {
 
 export const Modal = ({ children, open, onClose, size = "md" }: ModalProps) => {
 	const nodeId = useFloatingNodeId();
-	const { floating, context } = useFloating({
+	const { refs, context } = useFloating({
 		open,
 		onOpenChange: (open) => {
 			if (!open) {
@@ -76,7 +76,7 @@ export const Modal = ({ children, open, onClose, size = "md" }: ModalProps) => {
 									<div
 										className="flex flex-col bg-white min-w-[400px] rounded-xl max-h-full overflow-auto z-10 max-h-[calc(100vh_-_40px]"
 										{...getFloatingProps({
-											ref: floating,
+											ref: refs.setFloating,
 											style: {
 												width: getSize({ size: size!, sizes }),
 												...transitionStyles.modal,
@@ -86,7 +86,6 @@ export const Modal = ({ children, open, onClose, size = "md" }: ModalProps) => {
 										{children}
 									</div>
 								</div>
-								{/* </FocusTrap> */}
 							</FloatingFocusManager>
 						</div>
 					)}

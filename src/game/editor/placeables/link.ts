@@ -45,7 +45,7 @@ export class Link extends BasePlaceable {
 		);
 	}
 
-	setAnchor() {}
+	override setAnchor() {}
 
-	setAngle() {}
+	override setAngle() {}
 }

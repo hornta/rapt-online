@@ -80,7 +80,7 @@ export class DoomMagnet extends RotatingEnemy {
 		});
 	}
 
-	avoidsSpawn() {
+	override avoidsSpawn() {
 		return true;
 	}
 
@@ -96,7 +96,7 @@ export class DoomMagnet extends RotatingEnemy {
 		return delta;
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		const playerA = gameState.playerA;
 		const playerB = gameState.playerB;
 
@@ -134,7 +134,7 @@ export class DoomMagnet extends RotatingEnemy {
 		return delta;
 	}
 
-	afterTick() {
+	override afterTick() {
 		const position = this.getCenter();
 		this.bodySprite.offsetBeforeRotation = new Vector(position.x, position.y);
 	}

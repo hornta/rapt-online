@@ -1,4 +1,4 @@
-import { lineOfSightWorld } from "../collisionDetection";
+import { lineOfSightWorld } from "../collision/lineOfSight";
 import { ENEMY_STALACBAT, STAT_ENEMY_DEATHS } from "../constants";
 import { gameState } from "../game";
 import { randInRange } from "../math";
@@ -58,7 +58,7 @@ export class Stalacbat extends FreefallEnemy {
 	}
 
 	// Falls when the target is directly beneat it
-	move(seconds: number) {
+	override move(seconds: number) {
 		if (this.isFalling) {
 			return FreefallEnemy.prototype.move.call(this, seconds);
 		} else if (this.target !== null && !this.target.isDead) {
@@ -74,7 +74,7 @@ export class Stalacbat extends FreefallEnemy {
 		return new Vector(0, 0);
 	}
 
-	afterTick() {
+	override afterTick() {
 		let percent = this.velocity.y * -0.25;
 		if (percent > 1) {
 			percent = 1;
@@ -91,7 +91,7 @@ export class Stalacbat extends FreefallEnemy {
 		this.sprites[STALACBAT_SPRITE_RIGHT_WING].angle = angle - Math.PI / 2;
 	}
 
-	onDeath() {
+	override onDeath() {
 		gameState.incrementStat(STAT_ENEMY_DEATHS);
 
 		const isRed = this.target === gameState.playerA ? 0.8 : 0;
@@ -114,7 +114,7 @@ export class Stalacbat extends FreefallEnemy {
 		}
 	}
 
-	draw(c: CanvasRenderingContext2D) {
+	override draw(c: CanvasRenderingContext2D) {
 		// Draw the colored "eye"
 		if (this.target === gameState.playerA) {
 			c.fillStyle = "red";

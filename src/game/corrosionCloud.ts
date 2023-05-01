@@ -22,15 +22,15 @@ export class CorrosionCloud extends RotatingEnemy {
 		this.smoothedVelocity = new Vector(0, 0);
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
-	avoidsSpawn() {
+	override avoidsSpawn() {
 		return true;
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		if (!this.target) {
 			return new Vector(0, 0);
 		}
@@ -53,7 +53,7 @@ export class CorrosionCloud extends RotatingEnemy {
 		return this.velocity.mul(seconds);
 	}
 
-	afterTick() {
+	override afterTick() {
 		const direction = Vector.fromAngle(randInRange(0, 2 * Math.PI));
 		const center = this.getCenter().add(
 			direction.mul(randInRange(0, CORROSION_CLOUD_RADIUS))
@@ -82,7 +82,7 @@ export class CorrosionCloud extends RotatingEnemy {
 			.gravity(-0.4, 0);
 	}
 
-	getTarget() {
+	override getTarget() {
 		return Number(this.target === gameState.playerB);
 	}
 

@@ -45,7 +45,7 @@ export class JetStream extends SpawningEnemy {
 		this.sprites = [new Sprite(drawGeometry), new Sprite(drawGeometry)];
 	}
 
-	canCollide() {
+	override canCollide() {
 		return false;
 	}
 
@@ -57,7 +57,7 @@ export class JetStream extends SpawningEnemy {
 		return true;
 	}
 
-	afterTick(seconds: number) {
+	override afterTick(seconds: number) {
 		this.reloadAnimation += seconds * (0.5 / JET_STREAM_SHOOT_FREQ);
 
 		const angle = this.reloadAnimation * ((2 * Math.PI) / NUM_BARRELS);
@@ -116,5 +116,5 @@ export class JetStream extends SpawningEnemy {
 		}
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

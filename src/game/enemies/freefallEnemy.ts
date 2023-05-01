@@ -30,18 +30,18 @@ export class FreefallEnemy extends Enemy {
 		c.fill();
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		return this.accelerate(new Vector(0, FREEFALL_ACCEL), seconds);
 	}
 
-	reactToWorld() {
+	override reactToWorld() {
 		this.isDead = true;
 	}
 
-	reactToPlayer(player: Player) {
+	override reactToPlayer(player: Player) {
 		this.isDead = true;
 		player.isDead = true;
 	}
 
-	afterTick() {}
+	override afterTick() {}
 }

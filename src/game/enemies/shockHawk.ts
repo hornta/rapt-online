@@ -47,7 +47,7 @@ export class ShockHawk extends HoveringEnemy {
 		});
 	}
 
-	avoidsSpawn() {
+	override avoidsSpawn() {
 		if (this.chasing) {
 			return false;
 		} else {
@@ -55,7 +55,7 @@ export class ShockHawk extends HoveringEnemy {
 		}
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		// Time independent version of multiplying by 0.998
 		// solved x^0.01 = 0.998 for x very precisely using wolfram alpha
 		this.velocity.inplaceMul(Math.pow(0.8185668046884278, seconds));
@@ -74,11 +74,11 @@ export class ShockHawk extends HoveringEnemy {
 		return this.accelerate(accel, seconds);
 	}
 
-	onDeath() {
+	override onDeath() {
 		gameState.incrementStat(STAT_ENEMY_DEATHS);
 	}
 
-	afterTick() {
+	override afterTick() {
 		const position = this.getCenter();
 		this.bodySprite.offsetBeforeRotation = position;
 		if (!this.target.isDead) {
@@ -93,5 +93,5 @@ export class ShockHawk extends HoveringEnemy {
 		this.bodySprite.draw(c);
 	}
 
-	reactToWorld() {}
+	override reactToWorld() {}
 }

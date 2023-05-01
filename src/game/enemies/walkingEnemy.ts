@@ -20,7 +20,7 @@ export abstract class WalkingEnemy extends Enemy {
 		return this.hitCircle;
 	}
 
-	move(seconds: number) {
+	override move(seconds: number) {
 		return this.velocity.mul(seconds);
 	}
 }
